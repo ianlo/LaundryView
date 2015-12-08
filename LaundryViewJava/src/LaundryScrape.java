@@ -1,20 +1,40 @@
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.logging.Level;
 
+import org.apache.commons.logging.LogFactory;
+import org.w3c.css.sac.CSSException;
+import org.w3c.css.sac.CSSParseException;
+import org.w3c.css.sac.ErrorHandler;
+
+import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException;
+import com.gargoylesoftware.htmlunit.IncorrectnessListener;
+import com.gargoylesoftware.htmlunit.InteractivePage;
+import com.gargoylesoftware.htmlunit.ScriptException;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlDivision;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.gargoylesoftware.htmlunit.html.HtmlTable;
 import com.gargoylesoftware.htmlunit.html.HtmlTableRow;
+import com.gargoylesoftware.htmlunit.javascript.JavaScriptErrorListener;
 
 public class LaundryScrape {
-
+	public class Node {
+		
+	}
 	public static void main(String[] args) {
 		final WebClient webClient = new WebClient();
+
+	    java.util.logging.Logger.getLogger("com.gargoylesoftware.htmlunit").setLevel(Level.OFF); 
+	    java.util.logging.Logger.getLogger("org.apache.commons.httpclient").setLevel(Level.OFF);
+	    
 		HtmlPage page;
 		try {
 			page = webClient
 					.getPage("http://classic.laundryview.com/laundry_room.php?view=c&lr=4997123");
+		    
 			HtmlDivision monitor = (HtmlDivision) page.getElementById("classic_monitor");
 			HtmlTableRow table = ((HtmlTableRow) ((HtmlTable) monitor.getFirstChild()).getRow(0));
 			HtmlTable left = (HtmlTable) table.getCell(0).getFirstChild();
@@ -46,6 +66,7 @@ public class LaundryScrape {
 		}
 
 	}
+	
 	public static Machine setStatus(Machine m, String machineText) {
 		//Set the status of the machines based on what is in the scraped text.
 		if (machineText.contains("time remaining")) {
