@@ -56,5 +56,23 @@ public class Machine {
 	public int getNumber() {
 		return number;
 	}
-		
+	public void setStatusWithString(String machineText) {
+		//Set the status of the machines based on what is in the scraped text.
+		if (machineText.contains("time remaining")) {
+			setStatus(Machine.RUNNING);
+			//Scrape the time remaining from the text and set it to the machine's time remaining.
+			int startIndex = machineText.indexOf("remaining") + 10;
+			int endIndex = machineText.indexOf("min") - 1;
+			setTimeRemaining(Integer.parseInt(machineText.substring(startIndex, endIndex)));
+		}
+		else if (machineText.contains("out of service")) {
+			setStatus(Machine.OUTOFSERVICE);
+		}
+		else if (machineText.contains("ended")) {
+			setStatus(Machine.ENDED);
+		}
+		else {
+			setStatus(Machine.AVAILABLE);
+		}
+	}
 }
