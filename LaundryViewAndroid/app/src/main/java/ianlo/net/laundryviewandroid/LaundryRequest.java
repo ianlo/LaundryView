@@ -1,6 +1,12 @@
 package ianlo.net.laundryviewandroid;
 
 import android.os.AsyncTask;
+import android.util.Log;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+
+import java.io.IOException;
 
 /**
  * Created by ianlo on 2015-12-10.
@@ -8,6 +14,15 @@ import android.os.AsyncTask;
 public class LaundryRequest extends AsyncTask {
     @Override
     protected Object doInBackground(Object[] params) {
+        Document doc = null;
+        try {
+            doc = Jsoup.connect("http://classic.laundryview.com/laundry_room.php?view=c&lr=4997123").get();
+            String html = doc.html();
+            Log.d("Laundry", html);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 //        final WebClient webClient = new WebClient();
 //
 //        java.util.logging.Logger.getLogger("com.gargoylesoftware.htmlunit").setLevel(Level.OFF);

@@ -5,18 +5,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import java.lang.annotation.Annotation;
+
 public class MainActivity extends AppCompatActivity {
-    class MyJavaScriptInterface
-    {
-        @SuppressWarnings("unused")
-        public void processHTML(String html)
-        {
-            Log.d("Laundry", html);
-        }
-    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,14 +20,24 @@ public class MainActivity extends AppCompatActivity {
         final WebView wv = new WebView(this);
         wv.getSettings().setJavaScriptEnabled(true);
 
-        wv.addJavascriptInterface(new MyJavaScriptInterface(), "HTMLOUT");
+        wv.addJavascriptInterface(new JavascriptInterface() {
+
+            @Override
+            @JavascriptInterface
+            public Class<? extends Annotation> annotationType() {
+                return null;
+            }
+            @JavascriptInterface
+            public void processHTML(String data) {
+                Log.d("Laundry", data);
+            }
+        }, "HTML");
 
         wv.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
-                Log.d("Laundry", "loaded");
-                wv.loadUrl("javascript:window.HTMLOUT.processHTML('<html>'+document.getElementsByTagName('html')[0].innerHTML+'</html>');");
+                wv.loadUrl("javascript:window.HTML.processHTML(document.getElementById('classic_monitor').innerHTML);");
             }
         });
         wv.loadUrl("http://classic.laundryview.com/laundry_room.php?view=c&lr=4997123");

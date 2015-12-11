@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "ianlo.net.laundryviewandroid"
-        minSdkVersion 14
+        minSdkVersion 17
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -21,4 +21,5 @@ android {
 
 dependencies {
     compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'org.jsoup:jsoup:1.7.2'
 }
