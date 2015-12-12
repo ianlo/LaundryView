@@ -36,6 +36,21 @@ public class Machine {
 	public int getStatus() {
 		return status;
 	}
+
+    public String getStringStatus() {
+        switch(status) {
+            case AVAILABLE:
+                return "Available.";
+            case RUNNING:
+                return "Running (" + timeRemaining + " min left).";
+            case ENDED:
+                return "Cycle ended.";
+            case OUTOFSERVICE:
+                return "Out of Service.";
+            default:
+                return "Unknown.";
+        }
+    }
 	
 	public void setStatus(int status) {
 		this.status = status;

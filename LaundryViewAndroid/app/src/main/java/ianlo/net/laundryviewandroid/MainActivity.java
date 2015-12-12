@@ -8,6 +8,8 @@ import android.view.MenuItem;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import net.htmlparser.jericho.Element;
 import net.htmlparser.jericho.Source;
@@ -15,6 +17,9 @@ import net.htmlparser.jericho.Source;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    Machine[] washers;
+    Machine[] dryers;
+
     //Used to process html in javascript.
     public class JSInterface {
         @JavascriptInterface
@@ -40,8 +45,8 @@ public class MainActivity extends AppCompatActivity {
             int numWashers = left.size()/2;
             int numDryers = right.size()/2;
             // Create arrays to keep track of the machines.
-            Machine[] washers = new Machine[numWashers];
-            Machine[] dryers = new Machine[numDryers];
+            washers = new Machine[numWashers];
+            dryers = new Machine[numDryers];
             // Populate the arrays.
             for(int i = 0; i < numWashers; i++) {
                 washers[i] = new Machine(Machine.WASHER, Integer.parseInt(left.get(2 * i).getTextExtractor().toString()));
@@ -51,12 +56,21 @@ public class MainActivity extends AppCompatActivity {
                 dryers[i] = new Machine(Machine.DRYER, Integer.parseInt(right.get(2 * i).getTextExtractor().toString()));
                 dryers[i].setStatusWithString(right.get(2 * i + 1).getTextExtractor().toString());
             }
+            updateLaundryViews();
         }
     }
+
+    LinearLayout washerList;
+    LinearLayout dryerList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        washerList = (LinearLayout) findViewById(R.id.washerList);
+        dryerList = (LinearLayout) findViewById(R.id.dryerList);
+
         final WebView wv = new WebView(this);
         wv.getSettings().setJavaScriptEnabled(true);
 
@@ -92,5 +106,39 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void updateLaundryViews() {
+        //We have to edit the UI so add a new thread for the UI thread.
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                //Clear the previous values.
+                washerList.removeAllViews();
+                //Add the title
+                TextView washerTitle = new TextView(MainActivity.this);
+                washerTitle.setText("Washers:");
+                washerList.addView(washerTitle);
+                //Add the info for all the washers.
+                for(Machine m : washers) {
+                    TextView tv = new TextView(MainActivity.this);
+                    tv.setText(m.getNumber() + ": " + m.getStringStatus());
+                    washerList.addView(tv);
+                }
+                //Clear the previous values.
+                dryerList.removeAllViews();
+                //Add the title.
+                TextView dryerTitle = new TextView(MainActivity.this);
+                dryerTitle.setText("Dryers:");
+                dryerList.addView(dryerTitle);
+                //Add the info for all the washers.
+                for(Machine m : dryers) {
+                    TextView tv = new TextView(MainActivity.this);
+                    tv.setText(m.getNumber() + ": " + m.getStringStatus());
+                    dryerList.addView(tv);
+                }
+            }
+        });
+
     }
 }
