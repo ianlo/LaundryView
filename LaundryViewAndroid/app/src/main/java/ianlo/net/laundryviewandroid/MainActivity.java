@@ -2,17 +2,38 @@ package ianlo.net.laundryviewandroid;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import java.lang.annotation.Annotation;
+import net.htmlparser.jericho.Element;
+import net.htmlparser.jericho.Source;
 
 public class MainActivity extends AppCompatActivity {
+    //Used to process html in javascript.
+    public class JSInterface {
+        @JavascriptInterface
+        public void processHTML(String data) {
+            Source source = new Source(data);
+            Element classicMonitor = source.getElementById("classic_monitor");
+            Element table = classicMonitor
+                    .getChildElements().get(0)
+                    .getChildElements().get(0)
+                    .getChildElements().get(0)
+                    .getChildElements().get(0)
+                    .getChildElements().get(0);
+            Element leftBody = table
 
+                    .getChildElements().get(0);
+            Element rightBody =table
+                    .getChildElements().get(0);
+            int numWashers = leftBody.length()/2;
+            int numDryers = rightBody.length()/2;
+
+        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,24 +41,13 @@ public class MainActivity extends AppCompatActivity {
         final WebView wv = new WebView(this);
         wv.getSettings().setJavaScriptEnabled(true);
 
-        wv.addJavascriptInterface(new JavascriptInterface() {
-
-            @Override
-            @JavascriptInterface
-            public Class<? extends Annotation> annotationType() {
-                return null;
-            }
-            @JavascriptInterface
-            public void processHTML(String data) {
-                Log.d("Laundry", data);
-            }
-        }, "HTML");
+        wv.addJavascriptInterface(new JSInterface(), "HTML");
 
         wv.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
-                wv.loadUrl("javascript:window.HTML.processHTML(document.getElementById('classic_monitor').innerHTML);");
+                wv.loadUrl("javascript:window.HTML.processHTML(document.documentElement.innerHTML);");
             }
         });
         wv.loadUrl("http://classic.laundryview.com/laundry_room.php?view=c&lr=4997123");
