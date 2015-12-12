@@ -2,6 +2,7 @@ package ianlo.net.laundryviewandroid;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.JavascriptInterface;
@@ -11,27 +12,45 @@ import android.webkit.WebViewClient;
 import net.htmlparser.jericho.Element;
 import net.htmlparser.jericho.Source;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
     //Used to process html in javascript.
     public class JSInterface {
         @JavascriptInterface
         public void processHTML(String data) {
+            Log.d("Laundry", "Loading HTML");
             Source source = new Source(data);
             Element classicMonitor = source.getElementById("classic_monitor");
+            // Really inefficient grabbing of the table...
             Element table = classicMonitor
                     .getChildElements().get(0)
                     .getChildElements().get(0)
                     .getChildElements().get(0)
                     .getChildElements().get(0)
                     .getChildElements().get(0);
-            Element leftBody = table
-
-                    .getChildElements().get(0);
-            Element rightBody =table
-                    .getChildElements().get(0);
-            int numWashers = leftBody.length()/2;
-            int numDryers = rightBody.length()/2;
-
+            // Get the 2 separate tables and their rows as lists.
+            List<Element> left = table
+                    .getChildElements().get(0)
+                    .getChildElements();
+            List<Element> right = table
+                    .getChildElements().get(0)
+                    .getChildElements();
+            // Calculate the size. Each machine has 2 TRs.
+            int numWashers = left.size()/2;
+            int numDryers = right.size()/2;
+            // Create arrays to keep track of the machines.
+            Machine[] washers = new Machine[numWashers];
+            Machine[] dryers = new Machine[numDryers];
+            // Populate the arrays.
+            for(int i = 0; i < numWashers; i++) {
+                washers[i] = new Machine(Machine.WASHER, Integer.parseInt(left.get(2 * i).getTextExtractor().toString()));
+                washers[i].setStatusWithString(left.get(2 * i + 1).getTextExtractor().toString());
+            }
+            for(int i = 0; i < numDryers; i++) {
+                dryers[i] = new Machine(Machine.DRYER, Integer.parseInt(right.get(2 * i).getTextExtractor().toString()));
+                dryers[i].setStatusWithString(right.get(2 * i + 1).getTextExtractor().toString());
+            }
         }
     }
     @Override

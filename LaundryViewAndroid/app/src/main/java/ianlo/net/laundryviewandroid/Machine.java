@@ -19,9 +19,8 @@ public class Machine {
 	//Time remaining in minutes.
 	private int timeRemaining;
 	/**
-	 * Creates a new laundry machine.
+	 * Creates a new laundry machine with a washer or dryer type and the machine number written on the machine.
 	 * @param type one of the type constants given by this class (i.e. WASHER, DRYER).
-	 * @param status one of the status constants given by this class (i.e. AVAILABLE, RUNNING, etc.).
 	 * @param number the laundry machine number that is written on the machine.
 	 */
 	public Machine(int type,  int number){
@@ -56,6 +55,11 @@ public class Machine {
 	public int getNumber() {
 		return number;
 	}
+
+    /**
+     * Sets the status and time remaining of the machine using the String from the LaundryView page.
+     * @param machineText The description string from the LaundryView page.
+     */
 	public void setStatusWithString(String machineText) {
 		//Set the status of the machines based on what is in the scraped text.
 		if (machineText.contains("time remaining")) {
