@@ -31,14 +31,16 @@ public class MainActivity extends AppCompatActivity {
             Element table = classicMonitor
                     .getChildElements().get(0)
                     .getChildElements().get(0)
-                    .getChildElements().get(0)
-                    .getChildElements().get(0)
                     .getChildElements().get(0);
             // Get the 2 separate tables and their rows as lists.
             List<Element> left = table
                     .getChildElements().get(0)
+                    .getChildElements().get(0)
+                    .getChildElements().get(0)
                     .getChildElements();
             List<Element> right = table
+                    .getChildElements().get(1)
+                    .getChildElements().get(0)
                     .getChildElements().get(0)
                     .getChildElements();
             // Calculate the size. Each machine has 2 TRs.
@@ -60,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    WebView wv;
     LinearLayout washerList;
     LinearLayout dryerList;
 
@@ -71,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         washerList = (LinearLayout) findViewById(R.id.washerList);
         dryerList = (LinearLayout) findViewById(R.id.dryerList);
 
-        final WebView wv = new WebView(this);
+        wv = new WebView(this);
         wv.getSettings().setJavaScriptEnabled(true);
 
         wv.addJavascriptInterface(new JSInterface(), "HTML");
@@ -101,7 +104,8 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_refresh) {
+            wv.loadUrl("http://classic.laundryview.com/laundry_room.php?view=c&lr=4997123");
             return true;
         }
 
