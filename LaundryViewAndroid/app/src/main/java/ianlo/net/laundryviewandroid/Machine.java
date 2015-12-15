@@ -40,15 +40,15 @@ public class Machine {
     public String getStringStatus() {
         switch(status) {
             case AVAILABLE:
-                return "Available.";
+                return "Available";
             case RUNNING:
-                return "Running (" + timeRemaining + " min left).";
+                return "Running (" + timeRemaining + " min left)";
             case ENDED:
-                return "Cycle ended.";
+                return "Cycle ended";
             case OUTOFSERVICE:
-                return "Out of Service.";
+                return "Out of Service";
             default:
-                return "Unknown.";
+                return "Unknown";
         }
     }
 	
