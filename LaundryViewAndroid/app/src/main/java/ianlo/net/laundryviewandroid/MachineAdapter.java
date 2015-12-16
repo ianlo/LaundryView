@@ -43,13 +43,33 @@ public class MachineAdapter extends RecyclerView.Adapter<MachineAdapter.MachineV
 
     @Override
     public void onBindViewHolder(MachineViewHolder holder, int position) {
-        holder.machineText.setText(machines[position].getStringStatus());
-        TextDrawable drawable = TextDrawable.builder()
-                .beginConfig()
-                .withBorder(4)
-                .endConfig()
-                .buildRoundRect(machines[position].getNumber() + "", Color.RED, 5);
-        holder.machineNumber.setImageDrawable(drawable);
+        Machine m = machines[position];
+        holder.machineText.setText(m.getStringStatus());
+        TextDrawable drawable = null;
+        if(m.getStatus() == Machine.AVAILABLE) {
+            drawable = TextDrawable.builder()
+                    .beginConfig()
+                    .withBorder(4)
+                    .endConfig()
+                    .buildRoundRect(m.getNumber() + "", Color.parseColor("#99CC00"), 5);
+        }
+        else if(m.getStatus() == Machine.ENDED) {
+            drawable = TextDrawable.builder()
+                    .beginConfig()
+                    .withBorder(4)
+                    .endConfig()
+                    .buildRoundRect(m.getNumber() + "", Color.parseColor("#FFBB33"), 5);
+        }
+        else if(m.getStatus() == Machine.OUTOFSERVICE || m.getStatus() == Machine.RUNNING) {
+            drawable = TextDrawable.builder()
+                    .beginConfig()
+                    .withBorder(4)
+                    .endConfig()
+                    .buildRoundRect(m.getNumber() + "", Color.parseColor("#FF4444"), 5);
+        }
+        if(drawable != null) {
+            holder.machineNumber.setImageDrawable(drawable);
+        }
     }
 
     @Override
