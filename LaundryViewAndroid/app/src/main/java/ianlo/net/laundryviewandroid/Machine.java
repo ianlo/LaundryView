@@ -1,22 +1,22 @@
 package ianlo.net.laundryviewandroid;
 
 public class Machine {
-	//Machine states.
+	// Machine states.
 	public static final int AVAILABLE = 0;
 	public static final int RUNNING = 1;
 	public static final int ENDED = 2;
 	public static final int OUTOFSERVICE = 3;
 	
-	//Dryer or Washer.
+	// Dryer or Washer.
 	public static final int DRYER = 0;
 	public static final int WASHER = 1;
 	
-	//Local fields.
+	// Local fields.
 	private int type;
 	private int status;
 	private int number;
 	
-	//Time remaining in minutes.
+	// Time remaining in minutes.
 	private int timeRemaining;
 	/**
 	 * Creates a new laundry machine with a washer or dryer type and the machine number written on the machine.
@@ -61,7 +61,7 @@ public class Machine {
 		return timeRemaining;
 	}
 	
-	//When you set the time remaining, it automatically sets the machine to running.
+	// When you set the time remaining, it automatically sets the machine to running.
 	public void setTimeRemaining(int timeRemaining) {
 		this.timeRemaining = timeRemaining;
 		this.status = RUNNING;
@@ -76,10 +76,10 @@ public class Machine {
      * @param machineText The description string from the LaundryView page.
      */
 	public void setStatusWithString(String machineText) {
-		//Set the status of the machines based on what is in the scraped text.
+		// Set the status of the machines based on what is in the scraped text.
 		if (machineText.contains("time remaining")) {
 			setStatus(Machine.RUNNING);
-			//Scrape the time remaining from the text and set it to the machine's time remaining.
+			// Scrape the time remaining from the text and set it to the machine's time remaining.
 			int startIndex = machineText.indexOf("remaining") + 10;
 			int endIndex = machineText.indexOf("min") - 1;
 			setTimeRemaining(Integer.parseInt(machineText.substring(startIndex, endIndex)));

@@ -15,8 +15,8 @@ import com.amulyakhare.textdrawable.TextDrawable;
  * Created by ianlo on 2015-12-14.
  */
 public class MachineAdapter extends RecyclerView.Adapter<MachineAdapter.MachineViewHolder> {
-    private Machine[] machines;
 
+    private Machine[] machines;
 
     public static class MachineViewHolder extends RecyclerView.ViewHolder {
         CardView cv;
@@ -30,6 +30,7 @@ public class MachineAdapter extends RecyclerView.Adapter<MachineAdapter.MachineV
 
         }
     }
+
     public MachineAdapter(Machine[] machines) {
         this.machines = machines;
     }
@@ -37,15 +38,16 @@ public class MachineAdapter extends RecyclerView.Adapter<MachineAdapter.MachineV
     @Override
     public MachineViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview, parent, false);
-        MachineViewHolder pvh = new MachineViewHolder(v);
-        return pvh;
+        return new MachineViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(MachineViewHolder holder, int position) {
+        //Get the machine and set the machineText accordingly.
         Machine m = machines[position];
         holder.machineText.setText(m.getStringStatus());
         TextDrawable drawable = null;
+        //Change the drawable colour based on the status of the machine.
         if(m.getStatus() == Machine.AVAILABLE) {
             drawable = TextDrawable.builder()
                     .beginConfig()
@@ -67,6 +69,7 @@ public class MachineAdapter extends RecyclerView.Adapter<MachineAdapter.MachineV
                     .endConfig()
                     .buildRoundRect(m.getNumber() + "", Color.parseColor("#FF4444"), 5);
         }
+        //If the drawable was created successfully, set the drawable to the one we created.
         if(drawable != null) {
             holder.machineNumber.setImageDrawable(drawable);
         }

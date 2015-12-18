@@ -24,11 +24,8 @@ public class MachineFragment extends Fragment {
         View v = inflater.inflate(R.layout.machine_fragment, container, false);
         mRecyclerView = (RecyclerView) v.findViewById(R.id.recycler_view);
 
-        // use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView
         mRecyclerView.setHasFixedSize(true);
 
-        // use a linear layout manager
         mLayoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
         return v;
@@ -39,7 +36,7 @@ public class MachineFragment extends Fragment {
     }
 
     public void updateLaundryViews() {
-        //We have to edit the UI so add a new thread for the UI thread.
+        // We have to edit the UI so add a new thread for the UI thread.
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
