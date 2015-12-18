@@ -2,8 +2,6 @@ package ianlo.net.laundryviewandroid;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -58,20 +56,20 @@ public class MainActivity extends AppCompatActivity {
                 dryers[i] = new Machine(Machine.DRYER, Integer.parseInt(right.get(2 * i).getTextExtractor().toString()));
                 dryers[i].setStatusWithString(right.get(2 * i + 1).getTextExtractor().toString());
             }
-            updateLaundryViews();
+            washerFragment.setMachines(washers);
+            washerFragment.updateLaundryViews();
         }
     }
 
     WebView wv;
-
-    private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
+    MachineFragment washerFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        washerFragment = (MachineFragment) (getSupportFragmentManager().findFragmentById(R.id.washer_fragment));
 
         wv = new WebView(this);
         wv.getSettings().setJavaScriptEnabled(true);
@@ -86,17 +84,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         wv.loadUrl("http://classic.laundryview.com/laundry_room.php?view=c&lr=4997123");
-
-        mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-
-        // use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView
-        mRecyclerView.setHasFixedSize(true);
-
-        // use a linear layout manager
-        mLayoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(mLayoutManager);
-
 
     }
 
@@ -123,42 +110,5 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void updateLaundryViews() {
-        //We have to edit the UI so add a new thread for the UI thread.
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                //Clear the previous values.
-//                washerList.removeAllViews();
-//                //Add the title
-//                TextView washerTitle = new TextView(MainActivity.this);
-//                washerTitle.setText("Washers:");
-//                washerList.addView(washerTitle);
-//                //Add the info for all the washers.
-//                for(Machine m : washers) {
-//                    TextView tv = new TextView(MainActivity.this);
-//                    tv.setText(m.getNumber() + ": " + m.getStringStatus());
-//                    washerList.addView(tv);
-//                }
-//                //Clear the previous values.
-//                dryerList.removeAllViews();
-//                //Add the title.
-//                TextView dryerTitle = new TextView(MainActivity.this);
-//                dryerTitle.setText("Dryers:");
-//                dryerList.addView(dryerTitle);
-//                //Add the info for all the washers.
-//                for(Machine m : dryers) {
-//                    TextView tv = new TextView(MainActivity.this);
-//                    tv.setText(m.getNumber() + ": " + m.getStringStatus());
-//                    dryerList.addView(tv);
-//                }
-                mRecyclerView.removeAllViews();
-                // specify an adapter (see also next example)
-                mAdapter = new MachineAdapter(dryers);
-                mRecyclerView.setAdapter(mAdapter);
-            }
-        });
 
-
-    }
 }
