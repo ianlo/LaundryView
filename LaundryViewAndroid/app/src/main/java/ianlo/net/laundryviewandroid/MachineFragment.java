@@ -17,6 +17,8 @@ public class MachineFragment extends Fragment {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private Machine[] machines;
+    private String title = "No title";
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.machine_fragment, container, false);
@@ -47,5 +49,13 @@ public class MachineFragment extends Fragment {
                 mRecyclerView.setAdapter(mAdapter);
             }
         });
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

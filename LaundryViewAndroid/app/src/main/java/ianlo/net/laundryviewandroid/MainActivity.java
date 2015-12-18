@@ -1,6 +1,8 @@
 package ianlo.net.laundryviewandroid;
 
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -12,6 +14,7 @@ import android.webkit.WebViewClient;
 import net.htmlparser.jericho.Element;
 import net.htmlparser.jericho.Source;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -58,18 +61,40 @@ public class MainActivity extends AppCompatActivity {
             }
             washerFragment.setMachines(washers);
             washerFragment.updateLaundryViews();
+
+            dryerFragment.setMachines(dryers);
+            dryerFragment.updateLaundryViews();
         }
     }
 
     WebView wv;
     MachineFragment washerFragment;
+    MachineFragment dryerFragment;
+    FragmentAdapter fragmentAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        washerFragment = (MachineFragment) (getSupportFragmentManager().findFragmentById(R.id.washer_fragment));
+        washerFragment = new MachineFragment();
+        washerFragment.setTitle("Washers");
+        dryerFragment = new MachineFragment();
+        dryerFragment.setTitle("Dryers");
+
+        ArrayList<MachineFragment> fragments = new ArrayList<MachineFragment>();
+        fragments.add(washerFragment);
+        fragments.add(dryerFragment);
+
+        fragmentAdapter = new FragmentAdapter(getSupportFragmentManager(), fragments);
+
+        ViewPager pager =
+                (ViewPager)findViewById(R.id.viewpager);
+        pager.setAdapter(fragmentAdapter);
+
+        // Give the TabLayout the ViewPager
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
+        tabLayout.setupWithViewPager(pager);
 
         wv = new WebView(this);
         wv.getSettings().setJavaScriptEnabled(true);
@@ -84,7 +109,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         wv.loadUrl("http://classic.laundryview.com/laundry_room.php?view=c&lr=4997123");
-
     }
 
     @Override
