@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 /**
  * Created by ianlo on 2015-12-16.
@@ -18,16 +19,20 @@ public class MachineFragment extends Fragment {
     private RecyclerView.LayoutManager mLayoutManager;
     private Machine[] machines;
     private String title = "No title";
+    private TextView loadingTV;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.machine_fragment, container, false);
-        mRecyclerView = (RecyclerView) v.findViewById(R.id.recycler_view);
+        mRecyclerView = (RecyclerView) v.findViewById(R.id.machine_fragment_rv);
 
         mRecyclerView.setHasFixedSize(true);
 
         mLayoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
+
+        loadingTV = (TextView) v.findViewById(R.id.machine_fragment_loading_tv);
+
         return v;
     }
 
@@ -40,6 +45,9 @@ public class MachineFragment extends Fragment {
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
+                // Make the loading textview invisible.
+                loadingTV.setVisibility(View.INVISIBLE);
+
                 mRecyclerView.removeAllViews();
                 // specify an adapter (see also next example)
                 mAdapter = new MachineAdapter(machines);
