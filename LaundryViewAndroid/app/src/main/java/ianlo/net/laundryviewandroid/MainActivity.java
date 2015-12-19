@@ -120,6 +120,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         // Load the laundry page so that we can scrape the data.
+        loadUrl();
+    }
+
+    public void loadUrl() {
+        // Moved to a separate function so it can be called from the fragment.
         wv.loadUrl("http://classic.laundryview.com/laundry_room.php?view=c&lr=4997123");
     }
 
@@ -136,11 +141,7 @@ public class MainActivity extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        // Refresh the data by reloading the page in the webview.
-        if (id == R.id.action_refresh) {
-            wv.loadUrl("http://classic.laundryview.com/laundry_room.php?view=c&lr=4997123");
-            return true;
-        }
+
 
         return super.onOptionsItemSelected(item);
     }

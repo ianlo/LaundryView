@@ -1,18 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
     <TextView
         android:id="@+id/machine_fragment_loading_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/loading"
-        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        />
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/machine_fragment_rv"
-        android:scrollbars="vertical"
+        android:layout_centerVertical="true"
+        android:text="@string/loading" />
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/machine_fragment_srl"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/machine_fragment_rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical" />
+    </android.support.v4.widget.SwipeRefreshLayout>
 </RelativeLayout>

@@ -2,6 +2,7 @@ package ianlo.net.laundryviewandroid;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -17,6 +18,7 @@ public class MachineFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+    private SwipeRefreshLayout mSwipeRefreshLayout;
     private Machine[] machines;
     private String title = "No title";
     private TextView loadingTV;
@@ -30,6 +32,18 @@ public class MachineFragment extends Fragment {
 
         mLayoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
+
+        mSwipeRefreshLayout = (SwipeRefreshLayout) v.findViewById(R.id.machine_fragment_srl);
+        mSwipeRefreshLayout.setColorSchemeResources(
+                R.color.primary,
+                R.color.primary,
+                R.color.primary);
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                ((MainActivity) getActivity()).loadUrl();
+            }
+        });
 
         loadingTV = (TextView) v.findViewById(R.id.machine_fragment_loading_tv);
 
@@ -52,6 +66,7 @@ public class MachineFragment extends Fragment {
                 // specify an adapter (see also next example)
                 mAdapter = new MachineAdapter(machines);
                 mRecyclerView.setAdapter(mAdapter);
+                mSwipeRefreshLayout.setRefreshing(false);
             }
         });
     }
