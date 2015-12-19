@@ -1,6 +1,8 @@
 package ianlo.net.laundryviewandroid;
 
+import android.content.Context;
 import android.graphics.Color;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -17,6 +19,7 @@ import com.amulyakhare.textdrawable.TextDrawable;
 public class MachineAdapter extends RecyclerView.Adapter<MachineAdapter.MachineViewHolder> {
 
     private Machine[] machines;
+    private Context context;
 
     public static class MachineViewHolder extends RecyclerView.ViewHolder {
         CardView cv;
@@ -27,11 +30,11 @@ public class MachineAdapter extends RecyclerView.Adapter<MachineAdapter.MachineV
             cv = (CardView)itemView.findViewById(R.id.cv);
             machineText = (TextView)itemView.findViewById(R.id.machine_text);
             machineNumber = (ImageView) itemView.findViewById(R.id.machine_number);
-
         }
     }
 
-    public MachineAdapter(Machine[] machines) {
+    public MachineAdapter(Context context, Machine[] machines) {
+        this.context = context;
         this.machines = machines;
     }
 
@@ -53,21 +56,28 @@ public class MachineAdapter extends RecyclerView.Adapter<MachineAdapter.MachineV
                     .beginConfig()
                     .withBorder(4)
                     .endConfig()
-                    .buildRoundRect(m.getNumber() + "", Color.parseColor("#99CC00"), 5);
+                    .buildRoundRect(m.getNumber() + "", ContextCompat.getColor(context, R.color.green), 5);
         }
         else if(m.getStatus() == Machine.ENDED) {
             drawable = TextDrawable.builder()
                     .beginConfig()
                     .withBorder(4)
                     .endConfig()
-                    .buildRoundRect(m.getNumber() + "", Color.parseColor("#FFBB33"), 5);
+                    .buildRoundRect(m.getNumber() + "", ContextCompat.getColor(context, R.color.orange), 5);
         }
-        else if(m.getStatus() == Machine.OUTOFSERVICE || m.getStatus() == Machine.RUNNING) {
+        else if(m.getStatus() == Machine.RUNNING) {
             drawable = TextDrawable.builder()
                     .beginConfig()
                     .withBorder(4)
                     .endConfig()
-                    .buildRoundRect(m.getNumber() + "", Color.parseColor("#FF4444"), 5);
+                    .buildRoundRect(m.getNumber() + "", ContextCompat.getColor(context, R.color.red), 5);
+        }
+        else if(m.getStatus() == Machine.OUTOFSERVICE) {
+            drawable = TextDrawable.builder()
+                    .beginConfig()
+                    .withBorder(4)
+                    .endConfig()
+                    .buildRoundRect(m.getNumber() + "", ContextCompat.getColor(context, R.color.grey), 5);
         }
         //If the drawable was created successfully, set the drawable to the one we created.
         if(drawable != null) {

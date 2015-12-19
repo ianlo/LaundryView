@@ -33,11 +33,14 @@ public class MachineFragment extends Fragment {
         mLayoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
+        // Add swipe down to refresh feature.
         mSwipeRefreshLayout = (SwipeRefreshLayout) v.findViewById(R.id.machine_fragment_srl);
+        // Change the colour of the refresh to our primary colour.
         mSwipeRefreshLayout.setColorSchemeResources(
                 R.color.primary,
                 R.color.primary,
                 R.color.primary);
+        // To refresh, load the Url again in the Webview.
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -45,6 +48,7 @@ public class MachineFragment extends Fragment {
             }
         });
 
+        // Show the user that the machine info is loading.
         loadingTV = (TextView) v.findViewById(R.id.machine_fragment_loading_tv);
 
         return v;
@@ -64,7 +68,7 @@ public class MachineFragment extends Fragment {
 
                 mRecyclerView.removeAllViews();
                 // specify an adapter (see also next example)
-                mAdapter = new MachineAdapter(machines);
+                mAdapter = new MachineAdapter(MachineFragment.this.getContext(), machines);
                 mRecyclerView.setAdapter(mAdapter);
                 mSwipeRefreshLayout.setRefreshing(false);
             }
