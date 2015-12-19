@@ -1,6 +1,4 @@
 <resources>
-    <string name="app_name">LaundryViewAndroid</string>
-
-    <string name="hello_world">Hello world!</string>
+    <string name="app_name">Stever Laundry</string>
     <string name="action_refresh">Refresh</string>
 </resources>
