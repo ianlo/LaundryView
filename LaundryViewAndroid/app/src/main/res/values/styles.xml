@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="MyActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid">
+    <style name="MyActionBar" parent="@style/Widget.AppCompat.Light.ActionBar">
         <item name="android:background"  tools:ignore="NewApi">@color/primary</item>
+        <item name="android:textColorPrimary">@android:color/white</item>
     </style>
 
     <style name="CustomActionBarTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
@@ -10,10 +11,13 @@
         <item name="actionBarStyle">@style/MyActionBar</item>
         <item name="colorPrimary">@color/primary</item>
     </style>
+
     <style name="Base.Widget.Design.TabLayout" parent="android:Widget">
         <item name="tabPaddingStart">12dp</item>
         <item name="tabPaddingEnd">12dp</item>
         <item name="tabTextAppearance">@style/TextAppearance.Design.Tab</item>
         <item name="tabSelectedTextColor">?android:textColorPrimary</item>
     </style>
+
+
 </resources>
