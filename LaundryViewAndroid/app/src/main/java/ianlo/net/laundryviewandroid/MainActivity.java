@@ -130,6 +130,19 @@ public class MainActivity extends AppCompatActivity {
     public void loadUrl() {
         // Moved to a separate function so it can be called from the fragment.
         wv.loadUrl("http://classic.laundryview.com/laundry_room.php?view=c&lr=4997123");
+        // Boss: http://classic.laundryview.com/laundry_room.php?lr=4997152
+        // Doherty: http://classic.laundryview.com/laundry_room.php?lr=4997151
+        // Donner: http://classic.laundryview.com/laundry_room.php?lr=4997150
+        // Hamerschlag (Broken): http://classic.laundryview.com/laundry_room.php?lr=4997146
+        // Henderson: http://classic.laundryview.com/laundry_room.php?lr=4997147
+        // Margaret Morrison 101: http://classic.laundryview.com/laundry_room.php?lr=4997144
+        // Margaret Morrison 102 (Broken): http://classic.laundryview.com/laundry_room.php?lr=4997143
+        // Margaret Morrison 103: http://classic.laundryview.com/laundry_room.php?lr=4997141
+        // Margaret Morrison 104: http://classic.laundryview.com/laundry_room.php?lr=4997142
+        // Margaret Morrison 105: http://classic.laundryview.com/laundry_room.php?lr=4997140
+        // Margaret Morrison Storefront: http://classic.laundryview.com/laundry_room.php?lr=4997139
+        // Mcgill: http://classic.laundryview.com/laundry_room.php?lr=4997136
+        // Morewood A: http://classic.laundryview.com/laundry_room.php?lr=4997145
     }
 
     @Override
