@@ -124,42 +124,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         // Load the laundry page so that we can scrape the data.
-        loadUrl();
+        loadUrl(RoomConstants.STEVER);
     }
 
-    public void loadUrl() {
+    public void loadUrl(String url) {
         // Moved to a separate function so it can be called from the fragment.
-        wv.loadUrl("http://classic.laundryview.com/laundry_room.php?view=c&lr=4997123");
-        // Boss: http://classic.laundryview.com/laundry_room.php?lr=4997152
-        // Doherty: http://classic.laundryview.com/laundry_room.php?lr=4997151
-        // Donner: http://classic.laundryview.com/laundry_room.php?lr=4997150
-        // Hamerschlag (Broken): http://classic.laundryview.com/laundry_room.php?lr=4997146
-        // Henderson: http://classic.laundryview.com/laundry_room.php?lr=4997147
-        // Margaret Morrison 101: http://classic.laundryview.com/laundry_room.php?lr=4997144
-        // Margaret Morrison 102 (Broken): http://classic.laundryview.com/laundry_room.php?lr=4997143
-        // Margaret Morrison 103: http://classic.laundryview.com/laundry_room.php?lr=4997141
-        // Margaret Morrison 104: http://classic.laundryview.com/laundry_room.php?lr=4997142
-        // Margaret Morrison 105: http://classic.laundryview.com/laundry_room.php?lr=4997140
-        // Margaret Morrison Storefront: http://classic.laundryview.com/laundry_room.php?lr=4997139
-        // Mcgill: http://classic.laundryview.com/laundry_room.php?lr=4997136
-        // Morewood A: http://classic.laundryview.com/laundry_room.php?lr=4997145
-        // Morewood D: http://classic.laundryview.com/laundry_room.php?lr=4997132
-        // Morewood E 3rd Floor: http://classic.laundryview.com/laundry_room.php?lr=4997137
-        // Morewood E 4th Floor: http://classic.laundryview.com/laundry_room.php?lr=4997128
-        // Morewood E 5th Floor: http://classic.laundryview.com/laundry_room.php?lr=4997127
-        // Morewood E 6th Floor: http://classic.laundryview.com/laundry_room.php?lr=4997125
-        // Morewood E 7th Floor: http://classic.laundryview.com/laundry_room.php?lr=4997122
-        // Mudge B (Broken): http://classic.laundryview.com/laundry_room.php?lr=4997120
-        // Mudge C: http://classic.laundryview.com/laundry_room.php?lr=4997119
-        // Neville: http://classic.laundryview.com/laundry_room.php?lr=4997121
-        // Res on 5th 4th Floor (Broken): http://classic.laundryview.com/laundry_room.php?lr=4997116
-        // Res on 5th 5th Floor (Broken): http://classic.laundryview.com/laundry_room.php?lr=4997118
-        // Resnick: http://classic.laundryview.com/laundry_room.php?lr=4997117
-        // Scobell (Broken): http://classic.laundryview.com/laundry_room.php?lr=4997115
-        // Shirley: http://classic.laundryview.com/laundry_room.php?lr=4997114
-        // Spirit House (Broken): http://classic.laundryview.com/laundry_room.php?lr=4997112
-        // Welch: http://classic.laundryview.com/laundry_room.php?lr=4997113
-        // Woodlawn (Broken): http://classic.laundryview.com/laundry_room.php?lr=4997111
+        wv.loadUrl(url);
     }
 
     @Override

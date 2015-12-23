@@ -44,7 +44,7 @@ public class MachineFragment extends Fragment {
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                ((MainActivity) getActivity()).loadUrl();
+                ((MainActivity) getActivity()).loadUrl(RoomConstants.STEVER);
             }
         });
 
