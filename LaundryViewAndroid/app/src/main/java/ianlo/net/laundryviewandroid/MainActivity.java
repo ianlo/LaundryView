@@ -1,21 +1,29 @@
 package ianlo.net.laundryviewandroid;
 
+import android.content.Context;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import net.htmlparser.jericho.Element;
 import net.htmlparser.jericho.Source;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -72,44 +80,92 @@ public class MainActivity extends AppCompatActivity {
     WebView wv;
     MachineFragment washerFragment;
     MachineFragment dryerFragment;
-    FragmentAdapter fragmentAdapter;
+
+    // The drawer layout
+    DrawerLayout mDrawerLayout;
+    // The listview inside the navigation drawer.
+    ListView mDrawerList;
+
+    private boolean drawerOpen = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        // Set up the navigation drawer.
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerLayout.setDrawerShadow(
+                getResources().getDrawable(R.drawable.drawer_shadow),
+                GravityCompat.START);
+
+        mDrawerList = (ListView) findViewById(R.id.left_drawer);
+
+        // Close the drawers and unlock them
+        //mDrawerLayout.closeDrawers();
+        //mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
+
+        // Set the adapter for the list view
+        mDrawerList.setAdapter(new ArrayAdapter<String>(this,
+                R.layout.drawer_list_item, getResources().getStringArray(R.array.drawer_items)));
+
+        // Set the list's click listener
+        mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView parent, View view,
+                                    int position, long id) {
+
+                // Initializes intent the the chosen activity
+                switch (position) {
+                    case 0:
+                        newFragment(new MachineFragmentWrapper());
+                        break;
+                    case 1:
+                        newFragment(new MachineFragmentWrapper());
+                        break;
+                    default:
+                        break;
+                }
+                // Highlight the selected item, update the title, and close the
+                // drawer
+                mDrawerList.setItemChecked(position, true);
+                mDrawerLayout.closeDrawer(mDrawerList);
+            }
+
+        });
+
+        toolbar.setNavigationIcon(R.drawable.ic_drawer);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("LAUNDRY", "NAVIGATION");
+                if(drawerOpen) {
+                    // Set the drawer toggle as the DrawerListener
+                    mDrawerLayout.closeDrawer(Gravity.LEFT);
+                }
+                else {
+                    mDrawerLayout.openDrawer(Gravity.LEFT);
+                }
+                drawerOpen = !drawerOpen;
+            }
+        });
+
+
         setSupportActionBar(toolbar);
 
         // Remove the shadow on the action bar.
         getSupportActionBar().setElevation(0);
 
-        // Create new fragments for the washer and dryer pages.
-        washerFragment = new MachineFragment();
-        washerFragment.setTitle("Washers");
-        dryerFragment = new MachineFragment();
-        dryerFragment.setTitle("Dryers");
-
-        // Create a list of fragments to pass to the fragment adapter.
-        ArrayList<MachineFragment> fragments = new ArrayList<MachineFragment>();
-        fragments.add(washerFragment);
-        fragments.add(dryerFragment);
-
-        // Create a new fragment adapter
-        fragmentAdapter = new FragmentAdapter(getSupportFragmentManager(), fragments);
-        //Pass it to the view pager so that we can swipe between fragments.
-        ViewPager pager =
-                (ViewPager) findViewById(R.id.viewpager);
-        pager.setAdapter(fragmentAdapter);
-
-        // Give the TabLayout the ViewPager so the tabs work too.
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
-        tabLayout.setupWithViewPager(pager);
+        newFragment(new MachineFragmentWrapper());
 
         // Create a new webview for the webrequest.
         // We can't do a regular GET request because LaundryView loads its page using Javascript.
         // The Webview simulates a browser and loads the Javascript properly.
         wv = new WebView(this);
+
         wv.getSettings().setJavaScriptEnabled(true);
 
         // Use our JS interface to process the HTML.
@@ -123,9 +179,11 @@ public class MainActivity extends AppCompatActivity {
                 wv.loadUrl("javascript:window.HTML.processHTML(document.documentElement.innerHTML);");
             }
         });
+
         // Load the laundry page so that we can scrape the data.
         loadUrl(RoomConstants.STEVER);
     }
+
 
     public void loadUrl(String url) {
         // Moved to a separate function so it can be called from the fragment.
@@ -148,6 +206,30 @@ public class MainActivity extends AppCompatActivity {
 
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void newFragment(Fragment fragment) {
+
+        // Close the keyboard if it is open
+        if (getCurrentFocus() != null) {
+            InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputManager.hideSoftInputFromWindow(getCurrentFocus()
+                    .getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        }
+
+        // Create new fragment and transaction
+        FragmentTransaction transaction = getSupportFragmentManager()
+                .beginTransaction();
+
+        // Replace whatever is in the fragment_container view with this
+        // fragment,
+        // and add the transaction to the back stack
+        transaction.replace(R.id.main_fragment, fragment);
+        transaction.addToBackStack(null);
+
+        // Commit the transaction
+        transaction.commit();
+
     }
 
 }

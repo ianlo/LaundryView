@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-
     <style name="MyActionBar" parent="@style/Widget.AppCompat.Light.ActionBar">
         <item name="android:background"  tools:ignore="NewApi">@color/primary</item>
         <item name="android:textColorPrimary">@android:color/white</item>
@@ -19,5 +18,11 @@
         <item name="tabSelectedTextColor">?android:textColorPrimary</item>
     </style>
 
-
+    <style name="DrawerListViewStyle" parent="@android:style/Widget.Holo.Light">
+        <item name="android:layout_width">240dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_gravity">start</item>
+        <item name="android:background">#ffffff</item>
+        <item name="android:choiceMode">singleChoice</item>
+    </style>
 </resources>

@@ -2,4 +2,11 @@
     <string name="app_name">Stever Laundry</string>
     <string name="action_refresh">Refresh</string>
     <string name="loading">Loading...</string>
+    <string-array name="drawer_items">
+        <item>Home</item>
+        <item>View</item>
+        <item>Help</item>
+    </string-array>
+    <string name="open_drawer">Open Drawer</string>
+    <string name="close_drawer">Close Drawer</string>
 </resources>
