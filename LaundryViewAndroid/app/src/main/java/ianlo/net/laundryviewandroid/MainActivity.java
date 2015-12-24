@@ -2,14 +2,15 @@ package ianlo.net.laundryviewandroid;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -87,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
     ListView mDrawerList;
 
     private boolean drawerOpen = false;
+    ActionBarDrawerToggle mDrawerToggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -138,23 +140,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
         toolbar.setNavigationIcon(R.drawable.ic_drawer);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d("LAUNDRY", "NAVIGATION");
-                if(drawerOpen) {
-                    // Set the drawer toggle as the DrawerListener
-                    mDrawerLayout.closeDrawer(Gravity.LEFT);
-                }
-                else {
-                    mDrawerLayout.openDrawer(Gravity.LEFT);
-                }
-                drawerOpen = !drawerOpen;
-            }
-        });
-
 
         setSupportActionBar(toolbar);
+
+        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.app_name, R.string.app_name);
+        mDrawerLayout.setDrawerListener(mDrawerToggle);
 
         // Remove the shadow on the action bar.
         getSupportActionBar().setElevation(0);
@@ -206,6 +196,13 @@ public class MainActivity extends AppCompatActivity {
 
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onPostCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
+        super.onPostCreate(savedInstanceState, persistentState);
+        mDrawerToggle.syncState();
+
     }
 
     public void newFragment(Fragment fragment) {
