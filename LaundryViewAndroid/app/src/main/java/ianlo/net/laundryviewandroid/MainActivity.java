@@ -106,11 +106,11 @@ public class MainActivity extends AppCompatActivity {
                 // Initializes intent the the chosen activity
                 switch (position) {
                     case 0:
-                        machineFragmentWrapper = new MachineFragmentWrapper();
+                        //machineFragmentWrapper = new MachineFragmentWrapper();
                         newFragment(machineFragmentWrapper);
                         break;
                     case 1:
-                        machineFragmentWrapper = new MachineFragmentWrapper();
+                        //machineFragmentWrapper = new MachineFragmentWrapper();
                         newFragment(machineFragmentWrapper);
                         break;
                     default:
@@ -123,7 +123,8 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
-
+        // Select the first item.
+        mDrawerList.setItemChecked(0, true);
         // Set up the toggle
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.open_drawer, R.string.close_drawer);
         mDrawerLayout.setDrawerListener(mDrawerToggle);

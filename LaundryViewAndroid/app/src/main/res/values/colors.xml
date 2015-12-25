@@ -6,5 +6,6 @@
     <item name="grey" type="color">#9E9E9E</item>
 
     <item name="primary" type="color">#F44336</item>
+    <item name="primary_accent" type="color">#fcd2cf</item>
     <item name="primary_dark" type="color">#D91A0C</item>
 </resources>
