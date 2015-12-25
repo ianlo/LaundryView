@@ -69,17 +69,12 @@ public class MainActivity extends AppCompatActivity {
                 dryers[i].setStatusWithString(right.get(2 * i + 1).getTextExtractor().toString());
             }
             // Pass the machines to the fragments and update the fragments.
-            washerFragment.setMachines(washers);
-            washerFragment.updateLaundryViews();
-
-            dryerFragment.setMachines(dryers);
-            dryerFragment.updateLaundryViews();
+            machineFragmentWrapper.updateFragments(washers, dryers);
         }
     }
 
     WebView wv;
-    MachineFragment washerFragment;
-    MachineFragment dryerFragment;
+    MachineFragmentWrapper machineFragmentWrapper;
 
     // The drawer layout
     DrawerLayout mDrawerLayout;
@@ -111,10 +106,12 @@ public class MainActivity extends AppCompatActivity {
                 // Initializes intent the the chosen activity
                 switch (position) {
                     case 0:
-                        newFragment(new MachineFragmentWrapper());
+                        machineFragmentWrapper = new MachineFragmentWrapper();
+                        newFragment(machineFragmentWrapper);
                         break;
                     case 1:
-                        newFragment(new MachineFragmentWrapper());
+                        machineFragmentWrapper = new MachineFragmentWrapper();
+                        newFragment(machineFragmentWrapper);
                         break;
                     default:
                         break;
@@ -139,7 +136,8 @@ public class MainActivity extends AppCompatActivity {
         // Remove the shadow on the action bar.
         getSupportActionBar().setElevation(0);
         // Open machines by default
-        newFragment(new MachineFragmentWrapper());
+        machineFragmentWrapper = new MachineFragmentWrapper();
+        newFragment(machineFragmentWrapper);
         // Create a new webview for the webrequest.
         // We can't do a regular GET request because LaundryView loads its page using Javascript.
         // The Webview simulates a browser and loads the Javascript properly.

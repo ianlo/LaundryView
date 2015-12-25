@@ -14,7 +14,8 @@ import java.util.ArrayList;
  * Created by ianlo on 2015-12-16.
  */
 public class MachineFragmentWrapper extends Fragment {
-
+    MachineFragment washerFragment;
+    MachineFragment dryerFragment;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -22,9 +23,9 @@ public class MachineFragmentWrapper extends Fragment {
 
 
         // Create new fragments for the washer and dryer pages.
-        MachineFragment washerFragment = new MachineFragment();
+        washerFragment = new MachineFragment();
         washerFragment.setTitle("Washers");
-        MachineFragment dryerFragment = new MachineFragment();
+         dryerFragment = new MachineFragment();
         dryerFragment.setTitle("Dryers");
 
         // Create a list of fragments to pass to the fragment adapter.
@@ -46,5 +47,10 @@ public class MachineFragmentWrapper extends Fragment {
 
         return v;
     }
-
+    public void updateFragments(Machine[] washers, Machine[] dryers) {
+        washerFragment.setMachines(washers);
+        dryerFragment.setMachines(dryers);
+        washerFragment.updateLaundryViews();
+        dryerFragment.updateLaundryViews();
+    }
 }
