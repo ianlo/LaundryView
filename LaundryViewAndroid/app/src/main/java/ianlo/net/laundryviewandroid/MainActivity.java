@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -94,32 +93,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        // Set up the toolbar.
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-
+        setSupportActionBar(toolbar);
         // Set up the navigation drawer.
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerLayout.setDrawerShadow(
-                getResources().getDrawable(R.drawable.drawer_shadow),
-                GravityCompat.START);
-
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
-
-        // Close the drawers and unlock them
-        //mDrawerLayout.closeDrawers();
-        //mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
-
         // Set the adapter for the list view
         mDrawerList.setAdapter(new ArrayAdapter<String>(this,
                 R.layout.drawer_list_item, getResources().getStringArray(R.array.drawer_items)));
 
         // Set the list's click listener
         mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
             @Override
             public void onItemClick(AdapterView parent, View view,
                                     int position, long id) {
-
                 // Initializes intent the the chosen activity
                 switch (position) {
                     case 0:
@@ -139,28 +127,27 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        toolbar.setNavigationIcon(R.drawable.ic_drawer);
-
-        setSupportActionBar(toolbar);
-
-        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.app_name, R.string.app_name);
+        // Set up the toggle
+        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.open_drawer, R.string.close_drawer);
         mDrawerLayout.setDrawerListener(mDrawerToggle);
+
+        // Enable the nav drawer
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        mDrawerToggle.syncState();
 
         // Remove the shadow on the action bar.
         getSupportActionBar().setElevation(0);
-
+        // Open machines by default
         newFragment(new MachineFragmentWrapper());
-
         // Create a new webview for the webrequest.
         // We can't do a regular GET request because LaundryView loads its page using Javascript.
         // The Webview simulates a browser and loads the Javascript properly.
         wv = new WebView(this);
-
         wv.getSettings().setJavaScriptEnabled(true);
 
         // Use our JS interface to process the HTML.
         wv.addJavascriptInterface(new JSInterface(), "HTML");
-
         wv.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageFinished(WebView view, String url) {
@@ -169,11 +156,9 @@ public class MainActivity extends AppCompatActivity {
                 wv.loadUrl("javascript:window.HTML.processHTML(document.documentElement.innerHTML);");
             }
         });
-
         // Load the laundry page so that we can scrape the data.
         loadUrl(RoomConstants.STEVER);
     }
-
 
     public void loadUrl(String url) {
         // Moved to a separate function so it can be called from the fragment.
@@ -193,8 +178,6 @@ public class MainActivity extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -202,7 +185,6 @@ public class MainActivity extends AppCompatActivity {
     public void onPostCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
         super.onPostCreate(savedInstanceState, persistentState);
         mDrawerToggle.syncState();
-
     }
 
     public void newFragment(Fragment fragment) {
