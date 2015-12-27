@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
     WebView wv;
     MachineFragmentWrapper machineFragmentWrapper;
+    HomeFragment homeFragment;
 
     // The drawer layout
     DrawerLayout mDrawerLayout;
@@ -91,13 +92,19 @@ public class MainActivity extends AppCompatActivity {
         // Set up the toolbar.
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        // Instantiate fragments
+        machineFragmentWrapper = new MachineFragmentWrapper();
+        homeFragment = new HomeFragment();
+        // Open homeFragment by default
+        newFragment(homeFragment);
+
         // Set up the navigation drawer.
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
         // Set the adapter for the list view
         mDrawerList.setAdapter(new ArrayAdapter<String>(this,
                 R.layout.drawer_list_item, getResources().getStringArray(R.array.drawer_items)));
-
         // Set the list's click listener
         mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -106,11 +113,9 @@ public class MainActivity extends AppCompatActivity {
                 // Initializes intent the the chosen activity
                 switch (position) {
                     case 0:
-                        //machineFragmentWrapper = new MachineFragmentWrapper();
-                        newFragment(machineFragmentWrapper);
+                        newFragment(homeFragment);
                         break;
                     case 1:
-                        //machineFragmentWrapper = new MachineFragmentWrapper();
                         newFragment(machineFragmentWrapper);
                         break;
                     default:
@@ -136,9 +141,6 @@ public class MainActivity extends AppCompatActivity {
 
         // Remove the shadow on the action bar.
         getSupportActionBar().setElevation(0);
-        // Open machines by default
-        machineFragmentWrapper = new MachineFragmentWrapper();
-        newFragment(machineFragmentWrapper);
         // Create a new webview for the webrequest.
         // We can't do a regular GET request because LaundryView loads its page using Javascript.
         // The Webview simulates a browser and loads the Javascript properly.
