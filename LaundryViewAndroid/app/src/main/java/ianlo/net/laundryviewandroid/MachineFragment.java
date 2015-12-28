@@ -22,6 +22,13 @@ public class MachineFragment extends Fragment {
     private Machine[] machines;
     private String title = "No title";
     private TextView loadingTV;
+    private MainActivity activity;
+
+    public static MachineFragment newInstance(MainActivity activity) {
+        MachineFragment f = new MachineFragment();
+        f.activity = activity;
+        return f;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -44,12 +51,15 @@ public class MachineFragment extends Fragment {
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                ((MainActivity) getActivity()).loadUrl(RoomConstants.STEVER);
+                activity.loadUrl(RoomConstants.STEVER);
             }
         });
 
         // Show the user that the machine info is loading.
         loadingTV = (TextView) v.findViewById(R.id.machine_fragment_loading_tv);
+
+        // If the machines were loaded previously, update the views.
+        if (machines != null) updateLaundryViews();
 
         return v;
     }
@@ -60,7 +70,7 @@ public class MachineFragment extends Fragment {
 
     public void updateLaundryViews() {
         // We have to edit the UI so add a new thread for the UI thread.
-        getActivity().runOnUiThread(new Runnable() {
+        activity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 // Make the loading textview invisible.

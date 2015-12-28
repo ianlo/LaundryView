@@ -81,8 +81,6 @@ public class MainActivity extends AppCompatActivity {
     DrawerLayout mDrawerLayout;
     // The listview inside the navigation drawer.
     ListView mDrawerList;
-
-    private boolean drawerOpen = false;
     ActionBarDrawerToggle mDrawerToggle;
 
     @Override
@@ -94,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         // Instantiate fragments
-        machineFragmentWrapper = new MachineFragmentWrapper();
+        machineFragmentWrapper = MachineFragmentWrapper.newInstance(this);
         homeFragment = new HomeFragment();
         // Open homeFragment by default
         newFragment(homeFragment);

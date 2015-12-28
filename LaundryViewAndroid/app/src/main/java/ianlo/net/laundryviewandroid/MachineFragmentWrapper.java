@@ -16,17 +16,20 @@ import java.util.ArrayList;
 public class MachineFragmentWrapper extends Fragment {
     MachineFragment washerFragment;
     MachineFragment dryerFragment;
+
+    public static MachineFragmentWrapper newInstance(MainActivity activity) {
+        MachineFragmentWrapper f = new MachineFragmentWrapper();
+        // Create new fragments for the washer and dryer pages.
+        f.washerFragment = MachineFragment.newInstance(activity);
+        f.washerFragment.setTitle("Washers");
+        f.dryerFragment = MachineFragment.newInstance(activity);
+        f.dryerFragment.setTitle("Dryers");
+        return f;
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.machine_fragment_wrapper, container, false);
-
-
-        // Create new fragments for the washer and dryer pages.
-        washerFragment = new MachineFragment();
-        washerFragment.setTitle("Washers");
-         dryerFragment = new MachineFragment();
-        dryerFragment.setTitle("Dryers");
 
         // Create a list of fragments to pass to the fragment adapter.
         ArrayList<MachineFragment> fragments = new ArrayList<MachineFragment>();
@@ -47,10 +50,13 @@ public class MachineFragmentWrapper extends Fragment {
 
         return v;
     }
+
     public void updateFragments(Machine[] washers, Machine[] dryers) {
         washerFragment.setMachines(washers);
         dryerFragment.setMachines(dryers);
-        washerFragment.updateLaundryViews();
-        dryerFragment.updateLaundryViews();
+        if (washerFragment != null && dryerFragment != null) {
+            washerFragment.updateLaundryViews();
+            dryerFragment.updateLaundryViews();
+        }
     }
 }
