@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * Created by ianlo on 2015-12-17.
  */
 public class FragmentAdapter extends FragmentPagerAdapter {
-    ArrayList<MachineFragment> fragments;
+    private ArrayList<MachineFragment> fragments;
     public FragmentAdapter(FragmentManager fm, ArrayList<MachineFragment> fragments) {
         super(fm);
         this.fragments = fragments;

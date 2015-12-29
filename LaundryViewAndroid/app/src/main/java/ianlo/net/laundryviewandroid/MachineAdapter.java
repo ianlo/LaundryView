@@ -1,7 +1,6 @@
 package ianlo.net.laundryviewandroid;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -22,9 +21,9 @@ public class MachineAdapter extends RecyclerView.Adapter<MachineAdapter.MachineV
     private Context context;
 
     public static class MachineViewHolder extends RecyclerView.ViewHolder {
-        CardView cv;
-        TextView machineText;
-        ImageView machineNumber;
+        private CardView cv;
+        private TextView machineText;
+        private ImageView machineNumber;
         MachineViewHolder(View itemView) {
             super(itemView);
             cv = (CardView)itemView.findViewById(R.id.cv);
@@ -46,11 +45,11 @@ public class MachineAdapter extends RecyclerView.Adapter<MachineAdapter.MachineV
 
     @Override
     public void onBindViewHolder(MachineViewHolder holder, int position) {
-        //Get the machine and set the machineText accordingly.
+        // Get the Machine and set the TextView of the CardView accordingly.
         Machine m = machines[position];
         holder.machineText.setText(m.getStringStatus());
         TextDrawable drawable = null;
-        //Change the drawable colour based on the status of the machine.
+        // Change the drawable colour based on the status of the Machine.
         if(m.getStatus() == Machine.AVAILABLE) {
             drawable = TextDrawable.builder()
                     .beginConfig()
@@ -79,7 +78,7 @@ public class MachineAdapter extends RecyclerView.Adapter<MachineAdapter.MachineV
                     .endConfig()
                     .buildRoundRect(m.getNumber() + "", ContextCompat.getColor(context, R.color.grey), 5);
         }
-        //If the drawable was created successfully, set the drawable to the one we created.
+        // If the Drawable was created successfully, set the CardView Drawable to the one we created.
         if(drawable != null) {
             holder.machineNumber.setImageDrawable(drawable);
         }

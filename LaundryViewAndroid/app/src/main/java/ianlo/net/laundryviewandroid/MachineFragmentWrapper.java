@@ -14,18 +14,18 @@ import java.util.ArrayList;
  * Created by ianlo on 2015-12-16.
  */
 public class MachineFragmentWrapper extends Fragment {
-    MachineFragment washerFragment;
-    MachineFragment dryerFragment;
-    ArrayList<MachineFragment> fragments;
+    private MachineFragment washerFragment;
+    private MachineFragment dryerFragment;
+    private ArrayList<MachineFragment> fragments;
 
     public static MachineFragmentWrapper newInstance(MainActivity activity) {
         MachineFragmentWrapper f = new MachineFragmentWrapper();
-        // Create new fragments for the washer and dryer pages.
+        // Create new Fragments for the washer and dryer pages.
         f.washerFragment = MachineFragment.newInstance(activity);
         f.washerFragment.setTitle("Washers");
         f.dryerFragment = MachineFragment.newInstance(activity);
         f.dryerFragment.setTitle("Dryers");
-        // Set up the fragment arraylist.
+        // Set up the ArrayList containing the washer and dryer Fragments.
         f.fragments = new ArrayList<MachineFragment>();
         f.fragments.add(f.washerFragment);
         f.fragments.add(f.dryerFragment);
@@ -34,28 +34,23 @@ public class MachineFragmentWrapper extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         View v = inflater.inflate(R.layout.machine_fragment_wrapper, container, false);
-
-        // Create a new fragment adapter if it wasn't done before.
+        // Create a new Fragment adapter if it wasn't done before.
         FragmentAdapter fragmentAdapter = new FragmentAdapter(getChildFragmentManager(), fragments);
-
-        //Pass it to the view pager so that we can swipe between fragments.
+        // Pass it to the View Pager so that we can swipe between Fragments.
         ViewPager pager =
                 (ViewPager) v.findViewById(R.id.viewpager);
         pager.setAdapter(fragmentAdapter);
-
-
         // Give the TabLayout the ViewPager so the tabs work too.
         TabLayout tabLayout = (TabLayout) v.findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(pager);
-
         return v;
     }
 
     public void updateFragments(Machine[] washers, Machine[] dryers) {
         washerFragment.setMachines(washers);
         dryerFragment.setMachines(dryers);
+        // We can only update the Views if onCreateView() was called on the Fragment.
         if (washerFragment.getView() != null && dryerFragment.getView() != null) {
             washerFragment.updateLaundryViews();
             dryerFragment.updateLaundryViews();

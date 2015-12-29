@@ -27,10 +27,11 @@ import net.htmlparser.jericho.Source;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    Machine[] washers;
-    Machine[] dryers;
+    // Arrays to keep track of the information we get back from the LaundryView website.
+    private Machine[] washers;
+    private Machine[] dryers;
 
-    // Used to process html in javascript.
+    // Used to process HTML in Javascript.
     public class JSInterface {
         @JavascriptInterface
         public void processHTML(String data) {
@@ -68,47 +69,43 @@ public class MainActivity extends AppCompatActivity {
                 dryers[i] = new Machine(Machine.DRYER, Integer.parseInt(right.get(2 * i).getTextExtractor().toString()));
                 dryers[i].setStatusWithString(right.get(2 * i + 1).getTextExtractor().toString());
             }
-            // Pass the machines to the fragments and update the fragments.
+            // Pass the machines to the Fragments and update the Fragments.
             machineFragmentWrapper.updateFragments(washers, dryers);
         }
     }
 
-    WebView wv;
-    MachineFragmentWrapper machineFragmentWrapper;
-    HomeFragment homeFragment;
-
-    // The drawer layout
-    DrawerLayout mDrawerLayout;
-    // The listview inside the navigation drawer.
-    ListView mDrawerList;
-    ActionBarDrawerToggle mDrawerToggle;
+    // UI elements.
+    private WebView wv;
+    private MachineFragmentWrapper machineFragmentWrapper;
+    private HomeFragment homeFragment;
+    private DrawerLayout mDrawerLayout;
+    private ListView mDrawerList;
+    private ActionBarDrawerToggle mDrawerToggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // Set up the toolbar.
+        // Set up the Toolbar.
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        // Instantiate fragments
+        // Instantiate Fragments.
         machineFragmentWrapper = MachineFragmentWrapper.newInstance(this);
         homeFragment = new HomeFragment();
-        // Open homeFragment by default
+        // Open the HomeFragment by default.
         newFragment(homeFragment);
-
-        // Set up the navigation drawer.
+        // Set up the Navigation Drawer.
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
-        // Set the adapter for the list view
+        // Set the adapter for the ListView.
         mDrawerList.setAdapter(new ArrayAdapter<String>(this,
                 R.layout.drawer_list_item, getResources().getStringArray(R.array.drawer_items)));
-        // Set the list's click listener
+        // Set the ListView's click listener.
         mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView parent, View view,
                                     int position, long id) {
-                // Initializes intent the the chosen activity
+                // Initializes the chosen Fragment.
                 switch (position) {
                     case 0:
                         newFragment(homeFragment);
@@ -119,8 +116,7 @@ public class MainActivity extends AppCompatActivity {
                     default:
                         break;
                 }
-                // Highlight the selected item, update the title, and close the
-                // drawer
+                // Highlight the selected item and close the drawer.
                 mDrawerList.setItemChecked(position, true);
                 mDrawerLayout.closeDrawer(mDrawerList);
             }
@@ -128,20 +124,18 @@ public class MainActivity extends AppCompatActivity {
         });
         // Select the first item.
         mDrawerList.setItemChecked(0, true);
-        // Set up the toggle
+        // Set up the toggle.
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.open_drawer, R.string.close_drawer);
         mDrawerLayout.setDrawerListener(mDrawerToggle);
-
         // Enable the nav drawer
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
         mDrawerToggle.syncState();
-
         // Remove the shadow on the action bar.
         getSupportActionBar().setElevation(0);
-        // Create a new webview for the webrequest.
+        // Create a new WebView for the web request.
         // We can't do a regular GET request because LaundryView loads its page using Javascript.
-        // The Webview simulates a browser and loads the Javascript properly.
+        // The WebView simulates a browser and loads the Javascript properly.
         wv = new WebView(this);
         wv.getSettings().setJavaScriptEnabled(true);
 
@@ -160,13 +154,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void loadUrl(String url) {
-        // Moved to a separate function so it can be called from the fragment.
+        // Moved to a separate function so it can be called from the Fragment.
         wv.loadUrl(url);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+        // Inflate the menu; this adds items to the Action Bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
@@ -187,24 +181,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void newFragment(Fragment fragment) {
-        // Close the keyboard if it is open
+        // Close the keyboard if it is open.
         if (getCurrentFocus() != null) {
             InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
             inputManager.hideSoftInputFromWindow(getCurrentFocus()
                     .getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
         }
-
-        // Create new fragment and transaction
+        // Create new Fragment and Transaction.
         FragmentTransaction transaction = getSupportFragmentManager()
                 .beginTransaction();
-
-        // Replace whatever is in the fragment_container view with this
-        // fragment,
-        // and add the transaction to the back stack
+        // Replace whatever is in the Fragment view with this Fragment.
         transaction.replace(R.id.main_fragment, fragment);
         transaction.addToBackStack(null);
-
-        // Commit the transaction
+        // Commit the Transaction.
         transaction.commit();
     }
 }

@@ -33,34 +33,29 @@ public class MachineFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.machine_fragment, container, false);
+        // Set up the RecyclerView for the cards.
         mRecyclerView = (RecyclerView) v.findViewById(R.id.machine_fragment_rv);
-
         mRecyclerView.setHasFixedSize(true);
-
         mLayoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
-
-        // Add swipe down to refresh feature.
+        // Refresh the info when the user swipes down.
         mSwipeRefreshLayout = (SwipeRefreshLayout) v.findViewById(R.id.machine_fragment_srl);
         // Change the colour of the refresh to our primary colour.
         mSwipeRefreshLayout.setColorSchemeResources(
                 R.color.primary,
                 R.color.primary,
                 R.color.primary);
-        // To refresh, load the Url again in the Webview.
+        // To refresh, load the URL again in the WebView.
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 activity.loadUrl(RoomConstants.STEVER);
             }
         });
-
-        // Show the user that the machine info is loading.
+        // Show the user that the Machine info is loading.
         loadingTV = (TextView) v.findViewById(R.id.machine_fragment_loading_tv);
-
-        // If the machines were loaded previously, update the views.
+        // If the machines were loaded previously, update the Views.
         if (machines != null) updateLaundryViews();
-
         return v;
     }
 
@@ -73,11 +68,10 @@ public class MachineFragment extends Fragment {
         activity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                // Make the loading textview invisible.
+                // Make the loading TextView invisible and remove all preexisting cards.
                 loadingTV.setVisibility(View.INVISIBLE);
-
                 mRecyclerView.removeAllViews();
-                // specify an adapter (see also next example)
+                // Create a MachineAdapter so the cards show the Machine info.
                 mAdapter = new MachineAdapter(MachineFragment.this.getContext(), machines);
                 mRecyclerView.setAdapter(mAdapter);
                 mSwipeRefreshLayout.setRefreshing(false);

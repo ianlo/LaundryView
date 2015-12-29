@@ -18,6 +18,7 @@ public class Machine {
 	
 	// Time remaining in minutes.
 	private int timeRemaining;
+
 	/**
 	 * Creates a new laundry machine with a washer or dryer type and the machine number written on the machine.
 	 * @param type one of the type constants given by this class (i.e. WASHER, DRYER).
