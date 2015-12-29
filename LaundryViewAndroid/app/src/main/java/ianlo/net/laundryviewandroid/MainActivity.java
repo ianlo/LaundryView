@@ -187,7 +187,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void newFragment(Fragment fragment) {
-
         // Close the keyboard if it is open
         if (getCurrentFocus() != null) {
             InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -207,7 +206,5 @@ public class MainActivity extends AppCompatActivity {
 
         // Commit the transaction
         transaction.commit();
-
     }
-
 }
