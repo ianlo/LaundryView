@@ -9,11 +9,11 @@
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
-        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
-        android:background="?attr/colorPrimary" />
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <android.support.v4.widget.DrawerLayout
         android:id="@+id/drawer_layout"
@@ -21,19 +21,13 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
-        <RelativeLayout
+
+        <FrameLayout
+            android:id="@+id/main_fragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-
-            <FrameLayout
-                android:id="@+id/main_fragment"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/toolbar">
-
-            </FrameLayout>
-        </RelativeLayout>
+        </FrameLayout>
 
         <ListView
             android:id="@+id/left_drawer"
