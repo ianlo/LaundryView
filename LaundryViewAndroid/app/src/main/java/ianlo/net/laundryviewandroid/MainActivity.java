@@ -29,8 +29,8 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     // Arrays to keep track of the information we get back from the LaundryView website.
-    private Machine[] washers;
-    private Machine[] dryers;
+    public Machine[] washers;
+    public Machine[] dryers;
     private ProgressDialog progressDialog;
     // Used to process HTML in Javascript.
     public class JSInterface {
