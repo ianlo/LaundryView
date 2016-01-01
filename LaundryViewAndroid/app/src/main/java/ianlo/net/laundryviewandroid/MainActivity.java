@@ -1,5 +1,6 @@
 package ianlo.net.laundryviewandroid;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.PersistableBundle;
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     // Arrays to keep track of the information we get back from the LaundryView website.
     private Machine[] washers;
     private Machine[] dryers;
-
+    private ProgressDialog progressDialog;
     // Used to process HTML in Javascript.
     public class JSInterface {
         @JavascriptInterface
@@ -138,13 +139,17 @@ public class MainActivity extends AppCompatActivity {
         // The WebView simulates a browser and loads the Javascript properly.
         wv = new WebView(this);
         wv.getSettings().setJavaScriptEnabled(true);
-
+        // Create a ProgressDialog for the loading process.
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Loading...");
         // Use our JS interface to process the HTML.
         wv.addJavascriptInterface(new JSInterface(), "HTML");
         wv.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
+                // Hide the dialog once the data has been loaded.
+                progressDialog.hide();
                 // Call the JS interface to process the HTMl.
                 wv.loadUrl("javascript:window.HTML.processHTML(document.documentElement.innerHTML);");
             }
@@ -154,6 +159,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void loadUrl(String url) {
+        // Show the ProgressDialog.
+        progressDialog.show();
         // Moved to a separate function so it can be called from the Fragment.
         wv.loadUrl(url);
     }
