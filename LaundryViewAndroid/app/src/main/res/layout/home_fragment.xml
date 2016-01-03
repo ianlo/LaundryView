@@ -3,27 +3,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/home_machine_ET"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:gravity="center"
-        android:maxLength="2"
-        android:minEms="2" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/home_machine_ET"
-        android:layout_centerHorizontal="true"
-        android:text="@string/machine_number" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/get_info"
-        android:id="@+id/home_get_info_BTN"
-        android:layout_below="@id/home_machine_ET"/>
+        android:id="@+id/home_data_entry_layout"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/machine_number" />
+        <EditText
+            android:id="@+id/home_machine_ET"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:maxLength="2"
+            android:inputType="number"
+            android:minEms="2" />
+        <Button
+            android:id="@+id/home_get_info_BTN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/get_info" />
+    </LinearLayout>
 </RelativeLayout>
