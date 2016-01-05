@@ -1,11 +1,13 @@
 package ianlo.net.laundryviewandroid;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -29,6 +31,7 @@ public class HomeFragment extends Fragment {
         View v = inflater.inflate(R.layout.home_fragment, container, false);
         // Get the parent activity to get the machine info.
         mainActivity = (MainActivity) getActivity();
+
         // Views for the machineInfoLayout.
         machineInfoLayout = (LinearLayout) v.findViewById(R.id.home_machine_info_layout);
         machineInfoTV = (TextView) v.findViewById(R.id.home_machine_info_TV);
@@ -97,6 +100,12 @@ public class HomeFragment extends Fragment {
     }
 
     public void showMachineInfo(Machine selected) {
+        // Close the keyboard if it is open.
+        if (mainActivity.getCurrentFocus() != null) {
+            InputMethodManager inputManager = (InputMethodManager) mainActivity.getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputManager.hideSoftInputFromWindow(mainActivity.getCurrentFocus()
+                    .getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        }
         // Hide the dataEntry layout.
         dataEntryLayout.setVisibility(View.INVISIBLE);
         // Show the data specific to that machine.
