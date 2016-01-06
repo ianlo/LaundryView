@@ -106,6 +106,8 @@ public class HomeFragment extends Fragment {
             inputManager.hideSoftInputFromWindow(mainActivity.getCurrentFocus()
                     .getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
         }
+        // Change the action bar title to show the machine number.
+        mainActivity.getSupportActionBar().setTitle("Machine " + selected.getNumber());
         // Hide the dataEntry layout.
         dataEntryLayout.setVisibility(View.INVISIBLE);
         // Show the data specific to that machine.
