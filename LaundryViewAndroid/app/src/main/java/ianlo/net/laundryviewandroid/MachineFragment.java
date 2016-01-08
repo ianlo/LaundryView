@@ -49,7 +49,7 @@ public class MachineFragment extends Fragment {
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                activity.loadUrl(RoomConstants.STEVER);
+                activity.loadUrl(RoomConstants.STEVER.getUrl());
             }
         });
         // Show the user that the Machine info is loading.

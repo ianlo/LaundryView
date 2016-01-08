@@ -155,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         // Load the laundry page so that we can scrape the data.
-        loadUrl(RoomConstants.STEVER);
+        loadUrl(RoomConstants.STEVER.getUrl());
     }
 
     public void loadUrl(String url) {
