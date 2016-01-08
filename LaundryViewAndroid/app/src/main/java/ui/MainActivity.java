@@ -1,4 +1,4 @@
-package ianlo.net.laundryviewandroid;
+package ui;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -27,10 +27,14 @@ import net.htmlparser.jericho.Source;
 
 import java.util.List;
 
+import ianlo.net.laundryviewandroid.Machine;
+import ianlo.net.laundryviewandroid.R;
+import ianlo.net.laundryviewandroid.RoomConstants;
+
 public class MainActivity extends AppCompatActivity {
     // Arrays to keep track of the information we get back from the LaundryView website.
-    public Machine[] washers;
-    public Machine[] dryers;
+    private Machine[] washers;
+    private Machine[] dryers;
     private ProgressDialog progressDialog;
     // Used to process HTML in Javascript.
     public class JSInterface {
@@ -59,19 +63,19 @@ public class MainActivity extends AppCompatActivity {
             int numWashers = left.size() / 2;
             int numDryers = right.size() / 2;
             // Create arrays to keep track of the machines.
-            washers = new Machine[numWashers];
-            dryers = new Machine[numDryers];
+            setWashers(new Machine[numWashers]);
+            setDryers(new Machine[numDryers]);
             // Populate the arrays.
             for (int i = 0; i < numWashers; i++) {
-                washers[i] = new Machine(Machine.WASHER, Integer.parseInt(left.get(2 * i).getTextExtractor().toString()));
-                washers[i].setStatusWithString(left.get(2 * i + 1).getTextExtractor().toString());
+                getWashers()[i] = new Machine(Machine.WASHER, Integer.parseInt(left.get(2 * i).getTextExtractor().toString()));
+                getWashers()[i].setStatusWithString(left.get(2 * i + 1).getTextExtractor().toString());
             }
             for (int i = 0; i < numDryers; i++) {
-                dryers[i] = new Machine(Machine.DRYER, Integer.parseInt(right.get(2 * i).getTextExtractor().toString()));
-                dryers[i].setStatusWithString(right.get(2 * i + 1).getTextExtractor().toString());
+                getDryers()[i] = new Machine(Machine.DRYER, Integer.parseInt(right.get(2 * i).getTextExtractor().toString()));
+                getDryers()[i].setStatusWithString(right.get(2 * i + 1).getTextExtractor().toString());
             }
             // Pass the machines to the Fragments and update the Fragments.
-            machineFragmentWrapper.updateFragments(washers, dryers);
+            machineFragmentWrapper.updateFragments(getWashers(), getDryers());
         }
     }
 
@@ -79,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
     private WebView wv;
     private MachineFragmentWrapper machineFragmentWrapper;
     private HomeFragment homeFragment;
+    private SettingsFragment settingsFragment;
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
@@ -91,8 +96,9 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         // Instantiate Fragments.
-        machineFragmentWrapper = MachineFragmentWrapper.newInstance(this);
+        machineFragmentWrapper = MachineFragmentWrapper.newInstance(this, RoomConstants.STEVER);
         homeFragment = new HomeFragment();
+        settingsFragment = new SettingsFragment();
         // Open the HomeFragment by default.
         newFragment(homeFragment);
         // Set up the Navigation Drawer.
@@ -114,6 +120,8 @@ public class MainActivity extends AppCompatActivity {
                     case 1:
                         newFragment(machineFragmentWrapper);
                         break;
+                    case 2:
+                        newFragment(settingsFragment);
                     default:
                         break;
                 }
@@ -202,5 +210,21 @@ public class MainActivity extends AppCompatActivity {
         transaction.addToBackStack(null);
         // Commit the Transaction.
         transaction.commit();
+    }
+
+    public Machine[] getWashers() {
+        return washers;
+    }
+
+    public void setWashers(Machine[] washers) {
+        this.washers = washers;
+    }
+
+    public Machine[] getDryers() {
+        return dryers;
+    }
+
+    public void setDryers(Machine[] dryers) {
+        this.dryers = dryers;
     }
 }

@@ -1,4 +1,4 @@
-package ianlo.net.laundryviewandroid;
+package ui;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -10,6 +10,11 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
+import ianlo.net.laundryviewandroid.FragmentAdapter;
+import ianlo.net.laundryviewandroid.LaundryRoom;
+import ianlo.net.laundryviewandroid.Machine;
+import ianlo.net.laundryviewandroid.R;
+
 /**
  * Created by ianlo on 2015-12-16.
  */
@@ -17,13 +22,14 @@ public class MachineFragmentWrapper extends Fragment {
     private MachineFragment washerFragment;
     private MachineFragment dryerFragment;
     private ArrayList<MachineFragment> fragments;
+    private LaundryRoom laundryRoom;
 
-    public static MachineFragmentWrapper newInstance(MainActivity activity) {
+    public static MachineFragmentWrapper newInstance(MainActivity activity, LaundryRoom laundryRoom) {
         MachineFragmentWrapper f = new MachineFragmentWrapper();
         // Create new Fragments for the washer and dryer pages.
-        f.washerFragment = MachineFragment.newInstance(activity);
+        f.washerFragment = MachineFragment.newInstance(activity, laundryRoom);
         f.washerFragment.setTitle("Washers");
-        f.dryerFragment = MachineFragment.newInstance(activity);
+        f.dryerFragment = MachineFragment.newInstance(activity, laundryRoom);
         f.dryerFragment.setTitle("Dryers");
         // Set up the ArrayList containing the washer and dryer Fragments.
         f.fragments = new ArrayList<MachineFragment>();

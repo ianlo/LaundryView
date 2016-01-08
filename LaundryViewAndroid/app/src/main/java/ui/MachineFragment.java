@@ -1,4 +1,4 @@
-package ianlo.net.laundryviewandroid;
+package ui;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -9,6 +9,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import ianlo.net.laundryviewandroid.LaundryRoom;
+import ianlo.net.laundryviewandroid.Machine;
+import ianlo.net.laundryviewandroid.MachineAdapter;
+import ianlo.net.laundryviewandroid.R;
 
 /**
  * Created by ianlo on 2015-12-16.
@@ -23,10 +28,12 @@ public class MachineFragment extends Fragment {
     private String title = "No title";
     private TextView loadingTV;
     private MainActivity activity;
+    private LaundryRoom laundryRoom;
 
-    public static MachineFragment newInstance(MainActivity activity) {
+    public static MachineFragment newInstance(MainActivity activity, LaundryRoom laundryRoom) {
         MachineFragment f = new MachineFragment();
         f.activity = activity;
+        f.laundryRoom = laundryRoom;
         return f;
     }
 
@@ -49,7 +56,7 @@ public class MachineFragment extends Fragment {
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                activity.loadUrl(RoomConstants.STEVER.getUrl());
+                activity.loadUrl(laundryRoom.getUrl());
             }
         });
         // Show the user that the Machine info is loading.

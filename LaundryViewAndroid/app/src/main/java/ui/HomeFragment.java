@@ -1,4 +1,4 @@
-package ianlo.net.laundryviewandroid;
+package ui;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -13,6 +13,9 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import ianlo.net.laundryviewandroid.Machine;
+import ianlo.net.laundryviewandroid.R;
 
 /**
  * Created by ianlo on 2015-12-16.
@@ -31,7 +34,6 @@ public class HomeFragment extends Fragment {
         View v = inflater.inflate(R.layout.home_fragment, container, false);
         // Get the parent activity to get the machine info.
         mainActivity = (MainActivity) getActivity();
-
         // Views for the machineInfoLayout.
         machineInfoLayout = (LinearLayout) v.findViewById(R.id.home_machine_info_layout);
         machineInfoTV = (TextView) v.findViewById(R.id.home_machine_info_TV);
@@ -62,20 +64,22 @@ public class HomeFragment extends Fragment {
                 }
             }
         });
+        // TEMPORARY until we save the machine number.
+        showDataEntryLayout();
         return v;
     }
 
     public Machine findMachine(int num) {
         // Make sure the data has loaded.
-        if (mainActivity.washers != null && mainActivity.dryers != null) {
+        if (mainActivity.getWashers() != null && mainActivity.getDryers() != null) {
             // Iterate through the washers and dryers in mainActivity.
-            for (Machine m : mainActivity.washers) {
+            for (Machine m : mainActivity.getWashers()) {
                 // If we find the machine with the right number, return it.
                 if (m.getNumber() == num) {
                     return m;
                 }
             }
-            for (Machine m : mainActivity.dryers) {
+            for (Machine m : mainActivity.getDryers()) {
                 // If we find the machine with the right number, return it.
                 if (m.getNumber() == num) {
                     return m;

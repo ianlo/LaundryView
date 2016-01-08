@@ -12,4 +12,37 @@
     <string name="machine_number">Machine Number:</string>
     <string name="get_info">Get Info</string>
     <string name="status">Status:</string>
+    <string name="laundry_room">Laundry Room:</string>
+    <string-array name="laundry_rooms">
+        <item>Boss</item>
+        <item>Doherty</item>
+        <item>Hamerschlag</item>
+        <item>Henderson</item>
+        <item>Margaret Morrison 101</item>
+        <item>Margaret Morrison 102</item>
+        <item>Margaret Morrison 103</item>
+        <item>Margaret Morrison 104</item>
+        <item>Margaret Morrison 105</item>
+        <item>Margaret Morrison Storefront</item>
+        <item>Mcgill</item>
+        <item>Morewood A</item>
+        <item>Morewood D</item>
+        <item>Morewood E 3rd Floor</item>
+        <item>Morewood E 4th Floor</item>
+        <item>Morewood E 5th Floor</item>
+        <item>Morewood E 6th Floor</item>
+        <item>Morewood E 7th Floor</item>
+        <item>Mudge B</item>
+        <item>Mudge C</item>
+        <item>Neville</item>
+        <item>Res on Fifth 4th Floor</item>
+        <item>Res on Fifth 5th Floor</item>
+        <item>Resnick</item>
+        <item>Scobell</item>
+        <item>Shirley</item>
+        <item>Spirit House</item>
+        <item>Stever</item>
+        <item>Welch</item>
+        <item>Woodlawn</item>
+    </string-array>
 </resources>
