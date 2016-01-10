@@ -333,4 +333,11 @@ public class MainActivity extends AppCompatActivity {
         }
         return room;
     }
+
+    // Called when Settings are changed.
+    public void reloadData(String roomName) {
+        LaundryRoom room = getRoom(roomName);
+        machineFragmentWrapper = MachineFragmentWrapper.newInstance(this, room);
+        loadUrl(room.getUrl());
+    }
 }

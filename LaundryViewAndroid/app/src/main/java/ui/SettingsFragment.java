@@ -43,6 +43,7 @@ public class SettingsFragment extends Fragment {
                 editor.putString(SharedPreferencesConstants.SELECTED_ROOM, roomName);
                 editor.putInt(SharedPreferencesConstants.SELECTED_ROOM_POSITION, position);
                 editor.apply();
+                ((MainActivity) getActivity()).reloadData(roomName);
             }
         });
         return v;
