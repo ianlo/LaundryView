@@ -1,6 +1,9 @@
 package ui;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -14,7 +17,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Calendar;
+
 import ianlo.net.laundryviewandroid.Machine;
+import ianlo.net.laundryviewandroid.NotificationReceiver;
 import ianlo.net.laundryviewandroid.R;
 
 /**
@@ -117,5 +123,11 @@ public class HomeFragment extends Fragment {
         // Show the data specific to that machine.
         machineInfoLayout.setVisibility(View.VISIBLE);
         machineInfoTV.setText(selected.getStringStatus());
+        // Test push notifications
+        AlarmManager alarmMgr = (AlarmManager) mainActivity.getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(mainActivity, NotificationReceiver.class);
+        PendingIntent alarmIntent = PendingIntent.getBroadcast(mainActivity, 0, intent, 0);
+        // set for 2 seconds later
+        alarmMgr.set(AlarmManager.RTC, Calendar.getInstance().getTimeInMillis(), alarmIntent);
     }
 }
