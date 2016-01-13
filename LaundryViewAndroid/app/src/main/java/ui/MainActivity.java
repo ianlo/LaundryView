@@ -102,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences(SharedPreferencesConstants.NAME, MODE_PRIVATE);
         String roomName = prefs.getString(SharedPreferencesConstants.SELECTED_ROOM, "");
         LaundryRoom room = getRoom(roomName);
+        getSupportActionBar().setTitle(room.getName() + " Laundry");
         // Instantiate Fragments.
         machineFragmentWrapper = MachineFragmentWrapper.newInstance(this, room);
         homeFragment = new HomeFragment();
