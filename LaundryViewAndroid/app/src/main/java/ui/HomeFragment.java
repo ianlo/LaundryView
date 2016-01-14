@@ -128,6 +128,6 @@ public class HomeFragment extends Fragment {
         Intent intent = new Intent(mainActivity, NotificationReceiver.class);
         PendingIntent alarmIntent = PendingIntent.getBroadcast(mainActivity, 0, intent, 0);
         // set for 2 seconds later
-        alarmMgr.set(AlarmManager.RTC, Calendar.getInstance().getTimeInMillis(), alarmIntent);
+        alarmMgr.set(AlarmManager.RTC, Calendar.getInstance().getTimeInMillis() + 3000, alarmIntent);
     }
 }
