@@ -13,6 +13,7 @@
         <item name="colorPrimary">@color/primary</item>
         <item name="colorAccent">@color/primary_accent</item>
         <item name="android:textViewStyle">@style/RobotoTextViewStyle</item>
+        <item name="android:buttonStyle">@style/ButtonAppTheme</item>
     </style>
     <style name="Base.Widget.Design.TabLayout" parent="android:Widget">
         <item name="tabPaddingStart">12dp</item>
@@ -27,6 +28,11 @@
         <item name="android:layout_gravity">start</item>
         <item name="android:background">#ffffff</item>
         <item name="android:choiceMode">singleChoice</item>
+    </style>
+
+    <style name="ButtonAppTheme" parent="android:Widget.Holo.Light.Button">
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textColor">#ffffff</item>
     </style>
 
     <style name="RobotoTextViewStyle" parent="android:Widget.TextView">
