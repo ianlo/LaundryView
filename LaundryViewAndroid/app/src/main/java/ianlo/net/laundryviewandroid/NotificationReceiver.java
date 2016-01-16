@@ -19,8 +19,8 @@ public class NotificationReceiver extends BroadcastReceiver {
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
         Notification notification = new NotificationCompat.Builder(context)
-                .setContentTitle("Random title")
-                .setContentText("Random text")
+                .setContentTitle("Laundry Cycle Finished")
+                .setContentText("Go pick up your laundry!")
                 .setSmallIcon(R.drawable.abc_ic_go_search_api_mtrl_alpha)
                 .setContentIntent(PendingIntent.getActivity(context, 0, new Intent(context, MainActivity.class), 0))
                 .build();

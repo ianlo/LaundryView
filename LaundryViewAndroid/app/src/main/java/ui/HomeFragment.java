@@ -30,7 +30,6 @@ public class HomeFragment extends Fragment {
     private LinearLayout machineInfoLayout;
     private TextView machineInfoTV;
 
-    private LinearLayout dataEntryLayout;
     private Button getInfoBtn;
     private EditText machineET;
     private MainActivity mainActivity;
@@ -43,8 +42,7 @@ public class HomeFragment extends Fragment {
         // Views for the machineInfoLayout.
         machineInfoLayout = (LinearLayout) v.findViewById(R.id.home_machine_info_layout);
         machineInfoTV = (TextView) v.findViewById(R.id.home_machine_info_TV);
-        // Views for the dataEntryLayout.
-        dataEntryLayout = (LinearLayout) v.findViewById(R.id.home_data_entry_layout);
+        // Views for machine selection.
         machineET = (EditText) v.findViewById(R.id.home_machine_ET);
         getInfoBtn = (Button) v.findViewById(R.id.home_get_info_BTN);
         getInfoBtn.setOnClickListener(new View.OnClickListener() {
@@ -103,8 +101,6 @@ public class HomeFragment extends Fragment {
     public void showDataEntryLayout() {
         // Hide the machineInfo layout.
         machineInfoLayout.setVisibility(View.INVISIBLE);
-        // Show the dataEntry layout.
-        dataEntryLayout.setVisibility(View.VISIBLE);
         // Clear the EditText.
         machineET.setText("");
     }
@@ -118,8 +114,6 @@ public class HomeFragment extends Fragment {
         }
         // Change the action bar title to show the machine number.
         mainActivity.getSupportActionBar().setTitle("Machine " + selected.getNumber());
-        // Hide the dataEntry layout.
-        dataEntryLayout.setVisibility(View.INVISIBLE);
         // Show the data specific to that machine.
         machineInfoLayout.setVisibility(View.VISIBLE);
         machineInfoTV.setText(selected.getStringStatus());
@@ -127,7 +121,7 @@ public class HomeFragment extends Fragment {
         AlarmManager alarmMgr = (AlarmManager) mainActivity.getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(mainActivity, NotificationReceiver.class);
         PendingIntent alarmIntent = PendingIntent.getBroadcast(mainActivity, 0, intent, 0);
-        // set for 2 seconds later
-        alarmMgr.set(AlarmManager.RTC, Calendar.getInstance().getTimeInMillis() + 2000, alarmIntent);
+        // Correctly set the notification (no way to cancel right now).
+        alarmMgr.set(AlarmManager.RTC, Calendar.getInstance().getTimeInMillis() + selected.getTimeRemaining() * 60 * 1000, alarmIntent);
     }
 }

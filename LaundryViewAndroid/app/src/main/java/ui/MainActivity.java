@@ -341,4 +341,10 @@ public class MainActivity extends AppCompatActivity {
         machineFragmentWrapper = MachineFragmentWrapper.newInstance(this, room);
         loadUrl(room.getUrl());
     }
+
+    // Don't do anything when the back button is pressed. We don't want the fragment to change.
+    @Override
+    public void onBackPressed() {
+
+    }
 }

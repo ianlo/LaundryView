@@ -57,7 +57,8 @@ public class Machine {
 		this.status = status;
 		if (status != RUNNING) timeRemaining = 0;
 	}
-	
+
+	// Time remaining in minutes.
 	public int getTimeRemaining() {
 		return timeRemaining;
 	}
