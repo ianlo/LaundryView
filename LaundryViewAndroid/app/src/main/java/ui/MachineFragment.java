@@ -56,7 +56,8 @@ public class MachineFragment extends Fragment {
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                activity.loadUrl(laundryRoom.getUrl());
+                // Do not show the ProgressDialog when we load the data because we have the circle spinny thing from the SwipeRefreshLayout
+                activity.loadUrl(laundryRoom.getUrl(), false);
             }
         });
         // Show the user that the Machine info is loading.

@@ -172,13 +172,13 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        // Load the laundry page so that we can scrape the data.
-        loadUrl(room.getUrl());
+        // Load the laundry page so that we can scrape the data. We want the ProgressDialog when the app first starts up.
+        loadUrl(room.getUrl(), true);
     }
 
-    public void loadUrl(String url) {
-        // Show the ProgressDialog.
-        progressDialog.show();
+    public void loadUrl(String url, boolean showProgressDialog) {
+        // Show the ProgressDialog if it was requested.
+        if (showProgressDialog) progressDialog.show();
         // Moved to a separate function so it can be called from the Fragment.
         wv.loadUrl(url);
     }
@@ -339,7 +339,7 @@ public class MainActivity extends AppCompatActivity {
     public void reloadData(String roomName) {
         LaundryRoom room = getRoom(roomName);
         machineFragmentWrapper = MachineFragmentWrapper.newInstance(this, room);
-        loadUrl(room.getUrl());
+        loadUrl(room.getUrl(), true);
     }
 
     // Don't do anything when the back button is pressed. We don't want the fragment to change.
