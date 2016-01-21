@@ -13,6 +13,7 @@
     <string name="get_info">Get Info</string>
     <string name="status">Status:</string>
     <string name="laundry_room">Laundry Room:</string>
+    <string name="notification">Notification</string>
     <string-array name="laundry_rooms">
         <item>Boss</item>
         <item>Doherty</item>

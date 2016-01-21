@@ -112,16 +112,22 @@ public class HomeFragment extends Fragment {
             inputManager.hideSoftInputFromWindow(mainActivity.getCurrentFocus()
                     .getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
         }
-        // Change the action bar title to show the machine number.
-        mainActivity.getSupportActionBar().setTitle("Machine " + selected.getNumber());
         // Show the data specific to that machine.
         machineInfoLayout.setVisibility(View.VISIBLE);
         machineInfoTV.setText(selected.getStringStatus());
-        // Test push notifications
         AlarmManager alarmMgr = (AlarmManager) mainActivity.getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(mainActivity, NotificationReceiver.class);
-        PendingIntent alarmIntent = PendingIntent.getBroadcast(mainActivity, 0, intent, 0);
-        // Correctly set the notification (no way to cancel right now).
+        PendingIntent alarmIntent = PendingIntent.getBroadcast(mainActivity, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        // Set the notification to the time when the machine is finished.
         alarmMgr.set(AlarmManager.RTC, Calendar.getInstance().getTimeInMillis() + selected.getTimeRemaining() * 60 * 1000, alarmIntent);
+    }
+
+    // Cancel the previously set notification.
+    public void cancelNotification() {
+        Intent intent = new Intent(mainActivity, NotificationReceiver.class);
+        PendingIntent alarmIntent = PendingIntent.getBroadcast(mainActivity, 0, intent, PendingIntent.FLAG_NO_CREATE);
+        AlarmManager alarmMgr = (AlarmManager) mainActivity.getSystemService(Context.ALARM_SERVICE);
+        alarmMgr.cancel(alarmIntent);
+        alarmIntent.cancel();
     }
 }
