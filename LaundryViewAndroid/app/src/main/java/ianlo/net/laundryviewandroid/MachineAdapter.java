@@ -50,7 +50,7 @@ public class MachineAdapter extends RecyclerView.Adapter<MachineAdapter.MachineV
                     if (timeRemaining > 0) {
                         // Build the dialog to ask.
                         AlertDialog.Builder builder = new AlertDialog.Builder(mainActivity);
-                        builder.setTitle("Notification");
+                        builder.setTitle("Notify Me");
                         builder.setMessage("Would you like to be notified when the machine is finished? Past notifications will be cancelled.");
                         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
