@@ -4,16 +4,12 @@
     <string name="loading">Loading...</string>
     <string-array name="drawer_items">
         <item>Home</item>
-        <item>View</item>
         <item>Settings</item>
     </string-array>
     <string name="open_drawer">Open Drawer</string>
     <string name="close_drawer">Close Drawer</string>
-    <string name="machine_number">Machine Number:</string>
-    <string name="get_info">Get Info</string>
-    <string name="status">Status:</string>
     <string name="laundry_room">Laundry Room:</string>
-    <string name="notification">Notification</string>
+    <string name="clear_notifications">Clear Notification</string>
     <string-array name="laundry_rooms">
         <item>Boss</item>
         <item>Doherty</item>

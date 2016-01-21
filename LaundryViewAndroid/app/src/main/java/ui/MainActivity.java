@@ -85,7 +85,6 @@ public class MainActivity extends AppCompatActivity {
     // UI elements.
     private WebView wv;
     private MachineFragmentWrapper machineFragmentWrapper;
-    private HomeFragment homeFragment;
     private SettingsFragment settingsFragment;
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
@@ -105,10 +104,9 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(room.getName() + " Laundry");
         // Instantiate Fragments.
         machineFragmentWrapper = MachineFragmentWrapper.newInstance(this, room);
-        homeFragment = new HomeFragment();
         settingsFragment = new SettingsFragment();
         // Open the HomeFragment by default.
-        newFragment(homeFragment);
+        newFragment(machineFragmentWrapper);
         // Set up the Navigation Drawer.
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
@@ -123,12 +121,9 @@ public class MainActivity extends AppCompatActivity {
                 // Initializes the chosen Fragment.
                 switch (position) {
                     case 0:
-                        newFragment(homeFragment);
-                        break;
-                    case 1:
                         newFragment(machineFragmentWrapper);
                         break;
-                    case 2:
+                    case 1:
                         newFragment(settingsFragment);
                     default:
                         break;

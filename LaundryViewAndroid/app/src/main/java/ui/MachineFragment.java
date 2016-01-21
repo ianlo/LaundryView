@@ -27,12 +27,12 @@ public class MachineFragment extends Fragment {
     private Machine[] machines;
     private String title = "No title";
     private TextView loadingTV;
-    private MainActivity activity;
+    private MainActivity mainActivity;
     private LaundryRoom laundryRoom;
 
     public static MachineFragment newInstance(MainActivity activity, LaundryRoom laundryRoom) {
         MachineFragment f = new MachineFragment();
-        f.activity = activity;
+        f.mainActivity = activity;
         f.laundryRoom = laundryRoom;
         return f;
     }
@@ -57,7 +57,7 @@ public class MachineFragment extends Fragment {
             @Override
             public void onRefresh() {
                 // Do not show the ProgressDialog when we load the data because we have the circle spinny thing from the SwipeRefreshLayout
-                activity.loadUrl(laundryRoom.getUrl(), false);
+                mainActivity.loadUrl(laundryRoom.getUrl(), false);
             }
         });
         // Show the user that the Machine info is loading.
@@ -73,14 +73,14 @@ public class MachineFragment extends Fragment {
 
     public void updateLaundryViews() {
         // We have to edit the UI so add a new thread for the UI thread.
-        activity.runOnUiThread(new Runnable() {
+        mainActivity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 // Make the loading TextView invisible and remove all preexisting cards.
                 loadingTV.setVisibility(View.INVISIBLE);
                 mRecyclerView.removeAllViews();
                 // Create a MachineAdapter so the cards show the Machine info.
-                mAdapter = new MachineAdapter(MachineFragment.this.getContext(), machines);
+                mAdapter = new MachineAdapter(MachineFragment.this.getContext(), machines, mainActivity);
                 mRecyclerView.setAdapter(mAdapter);
                 mSwipeRefreshLayout.setRefreshing(false);
             }
