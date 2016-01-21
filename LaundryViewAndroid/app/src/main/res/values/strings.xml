@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Laundry</string>
+    <string name="app_name">CMU Laundry</string>
     <string name="action_refresh">Refresh</string>
     <string name="loading">Loading...</string>
     <string-array name="drawer_items">
