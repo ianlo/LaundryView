@@ -5,7 +5,7 @@
         <item name="android:textColorPrimary">@android:color/white</item>
     </style>
 
-    <style name="CustomActionBarTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+    <style name="CustomActionBarTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
         <item name="android:actionBarStyle"   tools:ignore="NewApi">@style/MyActionBar</item>
         <item name="android:fontFamily">sans-serif-light</item>
         <item name="actionBarStyle">@style/MyActionBar</item>
