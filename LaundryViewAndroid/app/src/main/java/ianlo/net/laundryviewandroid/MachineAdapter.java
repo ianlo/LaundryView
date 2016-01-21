@@ -58,9 +58,7 @@ public class MachineAdapter extends RecyclerView.Adapter<MachineAdapter.MachineV
                                 Intent intent = new Intent(mainActivity, NotificationReceiver.class);
                                 PendingIntent alarmIntent = PendingIntent.getBroadcast(mainActivity, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
                                 // Set the notification to the time when the machine is finished
-//                                alarmMgr.set(AlarmManager.RTC, Calendar.getInstance().getTimeInMillis() + timeRemaining * 60 * 1000, alarmIntent);
-                                alarmMgr.set(AlarmManager.RTC, Calendar.getInstance().getTimeInMillis() + 1000, alarmIntent);
-
+                                alarmMgr.set(AlarmManager.RTC, Calendar.getInstance().getTimeInMillis() + timeRemaining * 60 * 1000, alarmIntent);
                                 Log.d("CMU Laundry", "Notification in " + timeRemaining + " minutes.");
                                 Toast.makeText(mainActivity, "Notification Enabled", Toast.LENGTH_SHORT).show();
                             }

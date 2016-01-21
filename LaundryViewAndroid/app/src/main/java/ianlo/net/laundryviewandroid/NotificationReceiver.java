@@ -23,7 +23,7 @@ public class NotificationReceiver extends BroadcastReceiver {
         Notification notification = new NotificationCompat.Builder(context)
                 .setContentTitle("Laundry Cycle Finished")
                 .setContentText("Go pick up your laundry!")
-                .setSmallIcon(R.drawable.abc_ic_go_search_api_mtrl_alpha)
+                .setSmallIcon(R.drawable.ic_stat)
                 .setVibrate(new long[] {500})
                 .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
                 .setContentIntent(PendingIntent.getActivity(context, 0, new Intent(context, MainActivity.class), 0))
