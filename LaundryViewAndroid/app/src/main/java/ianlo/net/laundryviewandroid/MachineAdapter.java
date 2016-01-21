@@ -59,7 +59,7 @@ public class MachineAdapter extends RecyclerView.Adapter<MachineAdapter.MachineV
                                 PendingIntent alarmIntent = PendingIntent.getBroadcast(mainActivity, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
                                 // Set the notification to the time when the machine is finished
                                 alarmMgr.set(AlarmManager.RTC, Calendar.getInstance().getTimeInMillis() + timeRemaining * 60 * 1000, alarmIntent);
-                                Log.d("LaundryView", "Notification in " + timeRemaining + " minutes.");
+                                Log.d("CMU Laundry", "Notification in " + timeRemaining + " minutes.");
                                 Toast.makeText(mainActivity, "Notification Enabled", Toast.LENGTH_SHORT).show();
                             }
                         }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {

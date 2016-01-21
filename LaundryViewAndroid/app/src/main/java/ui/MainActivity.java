@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     public class JSInterface {
         @JavascriptInterface
         public void processHTML(String data) {
-            Log.d("Laundry", "Loading HTML");
+            Log.d("CMU Laundry", "Loading HTML");
             Source source = new Source(data);
             Element classicMonitor = source.getElementById("classic_monitor");
             // Really inefficient grabbing of the table...

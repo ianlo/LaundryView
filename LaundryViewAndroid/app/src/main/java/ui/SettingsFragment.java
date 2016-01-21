@@ -55,20 +55,33 @@ public class SettingsFragment extends Fragment {
                 ((MainActivity) getActivity()).reloadData(roomName);
             }
         });
-        Button clearButton = (Button) v.findViewById(R.id.settings_clear_notifications);
-        clearButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Get the PendingIntent and then cancel the scheduled notification.
-                AlarmManager alarmMgr = (AlarmManager) mainActivity.getSystemService(Context.ALARM_SERVICE);
-                Intent intent = new Intent(mainActivity, NotificationReceiver.class);
-                PendingIntent alarmIntent = PendingIntent.getBroadcast(mainActivity, 0, intent, PendingIntent.FLAG_NO_CREATE);
-                alarmMgr.cancel(alarmIntent);
-                alarmIntent.cancel();
-                Log.d("LaundryView", "Notification Cancelled");
-                Toast.makeText(mainActivity, "Notification Cancelled", Toast.LENGTH_SHORT).show();
-            }
-        });
+        final Button clearButton = (Button) v.findViewById(R.id.settings_clear_notifications);
+        // Check if a notification has been scheduled first.
+        Intent intent = new Intent(mainActivity, NotificationReceiver.class);
+        PendingIntent alarmIntent = PendingIntent.getBroadcast(mainActivity, 0, intent, PendingIntent.FLAG_NO_CREATE);
+        if (alarmIntent == null) {
+            // If there is no notification, disable the button.
+            clearButton.setEnabled(false);
+        }
+        else {
+            // If there is a notification, give the option to cancel it.
+            clearButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Get the PendingIntent and then cancel the scheduled notification.
+                    AlarmManager alarmMgr = (AlarmManager) mainActivity.getSystemService(Context.ALARM_SERVICE);
+                    Intent intent = new Intent(mainActivity, NotificationReceiver.class);
+                    PendingIntent alarmIntent = PendingIntent.getBroadcast(mainActivity, 0, intent, PendingIntent.FLAG_NO_CREATE);
+                    alarmMgr.cancel(alarmIntent);
+                    alarmIntent.cancel();
+                    // Tell the user and log the cancellation.
+                    Log.d("CMU Laundry", "Notification Cancelled");
+                    Toast.makeText(mainActivity, "Notification Cancelled", Toast.LENGTH_SHORT).show();
+                    clearButton.setEnabled(false);
+                }
+            });
+        }
+
         return v;
     }
 }
