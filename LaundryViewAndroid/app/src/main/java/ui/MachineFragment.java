@@ -1,14 +1,13 @@
 package ui;
 
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import ianlo.net.laundryviewandroid.LaundryRoom;
 import ianlo.net.laundryviewandroid.Machine;
@@ -26,7 +25,6 @@ public class MachineFragment extends Fragment {
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private Machine[] machines;
     private String title = "No title";
-    private TextView loadingTV;
     private MainActivity mainActivity;
     private LaundryRoom laundryRoom;
 
@@ -60,8 +58,6 @@ public class MachineFragment extends Fragment {
                 mainActivity.loadUrl(laundryRoom.getUrl(), false);
             }
         });
-        // Show the user that the Machine info is loading.
-        loadingTV = (TextView) v.findViewById(R.id.machine_fragment_loading_tv);
         // If the machines were loaded previously, update the Views.
         if (machines != null) updateLaundryViews();
         return v;
@@ -76,8 +72,7 @@ public class MachineFragment extends Fragment {
         mainActivity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                // Make the loading TextView invisible and remove all preexisting cards.
-                loadingTV.setVisibility(View.INVISIBLE);
+                // Remove all preexisting cards.
                 mRecyclerView.removeAllViews();
                 // Create a MachineAdapter so the cards show the Machine info.
                 mAdapter = new MachineAdapter(MachineFragment.this.getContext(), machines, mainActivity);

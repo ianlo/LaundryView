@@ -153,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
         // Create a ProgressDialog for the loading process.
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Loading...");
+        progressDialog.setCancelable(false);
         // Use our JS interface to process the HTML.
         wv.addJavascriptInterface(new JSInterface(), "HTML");
         wv.setWebViewClient(new WebViewClient() {
@@ -166,9 +167,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         // Load the laundry page so that we can scrape the data. We want the ProgressDialog when the app first starts up.
         loadUrl(room.getUrl(), true);
+
+        // Set the default room to Stever it hasn't been set yet.
+        SharedPreferences sharedPreferences = getSharedPreferences(SharedPreferencesConstants.NAME, MODE_PRIVATE);
+        if (sharedPreferences.getString(SharedPreferencesConstants.SELECTED_ROOM, null) == null
+                || sharedPreferences.getInt(SharedPreferencesConstants.SELECTED_ROOM_POSITION, -1) == -1) {
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString(SharedPreferencesConstants.SELECTED_ROOM, RoomConstants.STEVER.getName());
+            editor.putInt(SharedPreferencesConstants.SELECTED_ROOM_POSITION, 27);
+            editor.apply();
+        }
     }
 
     public void loadUrl(String url, boolean showProgressDialog) {

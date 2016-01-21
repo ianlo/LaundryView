@@ -43,6 +43,9 @@ public class SettingsFragment extends Fragment {
                 && preferences.getString(SharedPreferencesConstants.SELECTED_ROOM, null) != null) {
             roomSpinner.setSelection(preferences.getInt(SharedPreferencesConstants.SELECTED_ROOM_POSITION, 0));
         }
+        else {
+            roomSpinner.setSelection(preferences.getInt(SharedPreferencesConstants.SELECTED_ROOM_POSITION, 27));
+        }
         roomSpinner.setOnItemSelectedListener(new Spinner.OnItemSelectedListener() {
             @Override
             public void onItemSelected(Spinner parent, View view, int position, long id) {
