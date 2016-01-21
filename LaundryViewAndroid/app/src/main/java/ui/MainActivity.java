@@ -333,7 +333,11 @@ public class MainActivity extends AppCompatActivity {
     // Called when Settings are changed.
     public void reloadData(String roomName) {
         LaundryRoom room = getRoom(roomName);
+        // Change the ActionBar title.
+        getSupportActionBar().setTitle(room.getName() + " Laundry");
+        // Create a new MachineFragmentWrapper with the new room.
         machineFragmentWrapper = MachineFragmentWrapper.newInstance(this, room);
+        // Get fresh data.
         loadUrl(room.getUrl(), true);
     }
 
