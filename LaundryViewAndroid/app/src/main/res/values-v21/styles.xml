@@ -8,5 +8,6 @@
         <item name="colorPrimary">@color/primary</item>
         <item name="colorAccent">@color/primary_accent</item>
         <item name="android:windowTranslucentNavigation">false</item>
+        <item name="android:activatedBackgroundIndicator">@drawable/drawer_list_selector</item>
     </style>
 </resources>
