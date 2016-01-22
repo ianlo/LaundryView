@@ -5,6 +5,8 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -13,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.rey.material.widget.Spinner;
@@ -83,6 +86,15 @@ public class SettingsFragment extends Fragment {
                     clearButton.setEnabled(false);
                 }
             });
+        }
+
+        // Display the version number at the bottom of the page.
+        try {
+            TextView versionTV = (TextView) v.findViewById(R.id.settings_version_TV);
+            PackageInfo pInfo = mainActivity.getPackageManager().getPackageInfo(mainActivity.getPackageName(), 0);
+            versionTV.setText("Version " + pInfo.versionName);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
         }
 
         return v;

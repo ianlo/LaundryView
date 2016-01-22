@@ -1,36 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal"
-    android:orientation="vertical"
     android:padding="@dimen/padding">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp">
+        android:layout_alignParentTop="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
-        <TextView
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:text="@string/laundry_room" />
+
+            <com.rey.material.widget.Spinner
+                android:id="@+id/settings_room_spinner"
+                style="@style/Material.Widget.Spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                app:rd_style="@style/Material.Drawable.Ripple.Wave"
+                app:spn_popupItemAnimation="@null" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/settings_clear_notifications"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:text="@string/laundry_room" />
-
-        <com.rey.material.widget.Spinner
-            android:id="@+id/settings_room_spinner"
-            style="@style/Material.Widget.Spinner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            app:rd_style="@style/Material.Drawable.Ripple.Wave"
-            app:spn_popupItemAnimation="@null" />
-    </RelativeLayout>
-
-    <Button
-        android:id="@+id/settings_clear_notifications"
+            android:text="@string/clear_notifications" />
+    </LinearLayout>
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/clear_notifications" />
-</LinearLayout>
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/settings_version_TV"/>
+</RelativeLayout>
