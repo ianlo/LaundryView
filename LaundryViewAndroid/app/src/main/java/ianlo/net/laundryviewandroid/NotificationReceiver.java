@@ -24,7 +24,7 @@ public class NotificationReceiver extends BroadcastReceiver {
                 .setContentTitle("Laundry Cycle Finished")
                 .setContentText("Go pick up your laundry!")
                 .setSmallIcon(R.drawable.ic_stat)
-                .setVibrate(new long[] {500})
+                .setVibrate(new long[] {0, 300, 200, 300})
                 .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
                 .setContentIntent(PendingIntent.getActivity(context, 0, new Intent(context, MainActivity.class), 0))
                 .build();
@@ -34,7 +34,9 @@ public class NotificationReceiver extends BroadcastReceiver {
         AlarmManager alarmMgr = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         PendingIntent alarmIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_NO_CREATE);
         alarmMgr.cancel(alarmIntent);
-        alarmIntent.cancel();
+        if (alarmIntent != null) {
+            alarmIntent.cancel();
+        }
     }
 }
 
