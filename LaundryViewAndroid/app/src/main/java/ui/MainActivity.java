@@ -252,8 +252,14 @@ public class MainActivity extends AppCompatActivity {
             case "Doherty":
                 room = RoomConstants.DOHERTY;
                 break;
+            case "Donner":
+                room = RoomConstants.DONNER;
+                break;
             case "Hamerschlag":
                 room = RoomConstants.HAMERSCHLAG;
+                break;
+            case "Henderson":
+                room = RoomConstants.HENDERSON;
                 break;
             case "Margaret Morrison 101":
                 room = RoomConstants.MARGARET_MORRISON_101;
