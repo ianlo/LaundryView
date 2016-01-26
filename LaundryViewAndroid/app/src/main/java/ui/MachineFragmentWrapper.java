@@ -10,10 +10,10 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
-import ianlo.net.laundryviewandroid.FragmentAdapter;
-import ianlo.net.laundryviewandroid.LaundryRoom;
-import ianlo.net.laundryviewandroid.Machine;
-import ianlo.net.laundryviewandroid.R;
+import ianlo.net.cmulaundry.FragmentAdapter;
+import ianlo.net.cmulaundry.LaundryRoom;
+import ianlo.net.cmulaundry.Machine;
+import ianlo.net.cmulaundry.R;
 
 /**
  * Created by ianlo on 2015-12-16.

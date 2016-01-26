@@ -1,4 +1,4 @@
-package ianlo.net.laundryviewandroid;
+package ianlo.net.cmulaundry;
 
 public class Machine {
 	// Machine states.

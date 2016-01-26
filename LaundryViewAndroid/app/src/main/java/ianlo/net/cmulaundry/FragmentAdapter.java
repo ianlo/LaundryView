@@ -1,4 +1,4 @@
-package ianlo.net.laundryviewandroid;
+package ianlo.net.cmulaundry;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

@@ -20,9 +20,9 @@ import android.widget.Toast;
 
 import com.rey.material.widget.Spinner;
 
-import ianlo.net.laundryviewandroid.NotificationReceiver;
-import ianlo.net.laundryviewandroid.R;
-import ianlo.net.laundryviewandroid.SharedPreferencesConstants;
+import ianlo.net.cmulaundry.NotificationReceiver;
+import ianlo.net.cmulaundry.R;
+import ianlo.net.cmulaundry.SharedPreferencesConstants;
 
 /**
  * Created by ianlo on 2015-12-16.

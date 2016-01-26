@@ -28,11 +28,11 @@ import net.htmlparser.jericho.Source;
 
 import java.util.List;
 
-import ianlo.net.laundryviewandroid.LaundryRoom;
-import ianlo.net.laundryviewandroid.Machine;
-import ianlo.net.laundryviewandroid.R;
-import ianlo.net.laundryviewandroid.RoomConstants;
-import ianlo.net.laundryviewandroid.SharedPreferencesConstants;
+import ianlo.net.cmulaundry.LaundryRoom;
+import ianlo.net.cmulaundry.Machine;
+import ianlo.net.cmulaundry.R;
+import ianlo.net.cmulaundry.RoomConstants;
+import ianlo.net.cmulaundry.SharedPreferencesConstants;
 
 public class MainActivity extends AppCompatActivity {
     // Arrays to keep track of the information we get back from the LaundryView website.

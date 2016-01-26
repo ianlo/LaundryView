@@ -1,4 +1,4 @@
-package ianlo.net.laundryviewandroid;
+package ianlo.net.cmulaundry;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

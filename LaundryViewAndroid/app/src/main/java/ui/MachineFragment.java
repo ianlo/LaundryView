@@ -9,10 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import ianlo.net.laundryviewandroid.LaundryRoom;
-import ianlo.net.laundryviewandroid.Machine;
-import ianlo.net.laundryviewandroid.MachineAdapter;
-import ianlo.net.laundryviewandroid.R;
+import ianlo.net.cmulaundry.LaundryRoom;
+import ianlo.net.cmulaundry.Machine;
+import ianlo.net.cmulaundry.MachineAdapter;
+import ianlo.net.cmulaundry.R;
 
 /**
  * Created by ianlo on 2015-12-16.

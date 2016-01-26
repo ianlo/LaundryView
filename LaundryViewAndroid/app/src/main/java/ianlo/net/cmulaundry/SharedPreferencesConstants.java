@@ -1,4 +1,4 @@
-package ianlo.net.laundryviewandroid;
+package ianlo.net.cmulaundry;
 
 /**
  * Created by ianlo on 2016-01-08.
