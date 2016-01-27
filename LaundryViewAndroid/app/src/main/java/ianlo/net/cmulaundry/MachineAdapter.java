@@ -21,7 +21,7 @@ import com.amulyakhare.textdrawable.TextDrawable;
 
 import java.util.Calendar;
 
-import ui.MainActivity;
+import layouts.MainActivity;
 
 /**
  * Created by ianlo on 2015-12-14.
@@ -114,7 +114,7 @@ public class MachineAdapter extends RecyclerView.Adapter<MachineAdapter.MachineV
                     .withBorder(4)
                     .endConfig()
                     .buildRoundRect(m.getNumber() + "", ContextCompat.getColor(context, R.color.red), 5);
-        } else if (m.getStatus() == Machine.OUTOFSERVICE) {
+        } else if (m.getStatus() == Machine.OUTOFSERVICE || m.getStatus() == Machine.UNKNOWN) {
             drawable = TextDrawable.builder()
                     .beginConfig()
                     .withBorder(4)

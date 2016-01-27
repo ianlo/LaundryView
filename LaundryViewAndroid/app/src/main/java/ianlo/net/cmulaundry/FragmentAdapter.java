@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import java.util.ArrayList;
 
-import ui.MachineFragment;
+import layouts.MachineFragment;
 
 /**
  * Created by ianlo on 2015-12-17.

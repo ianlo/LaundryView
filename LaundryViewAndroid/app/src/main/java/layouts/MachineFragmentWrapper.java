@@ -1,4 +1,4 @@
-package ui;
+package layouts;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;

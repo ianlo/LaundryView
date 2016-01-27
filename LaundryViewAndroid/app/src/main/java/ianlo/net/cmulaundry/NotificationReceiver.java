@@ -10,7 +10,7 @@ import android.content.Intent;
 import android.media.RingtoneManager;
 import android.support.v7.app.NotificationCompat;
 
-import ui.MainActivity;
+import layouts.MainActivity;
 
 /**
  * Created by ianlo on 2016-01-11.

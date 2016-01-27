@@ -1,4 +1,4 @@
-package ui;
+package layouts;
 
 import android.app.ProgressDialog;
 import android.content.Context;

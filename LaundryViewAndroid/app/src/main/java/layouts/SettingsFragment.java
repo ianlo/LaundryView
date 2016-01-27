@@ -1,4 +1,4 @@
-package ui;
+package layouts;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
