@@ -15,6 +15,7 @@
 		59FF0EB11C5BA07200A13164 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59FF0EAF1C5BA07200A13164 /* LaunchScreen.storyboard */; };
 		59FF0EBC1C5BA07200A13164 /* CMULaundryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FF0EBB1C5BA07200A13164 /* CMULaundryTests.swift */; };
 		59FF0EC71C5BA07200A13164 /* CMULaundryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FF0EC61C5BA07200A13164 /* CMULaundryUITests.swift */; };
+		59FF0ED51C5BA28E00A13164 /* LaundryRooms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FF0ED41C5BA28E00A13164 /* LaundryRooms.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		59FF0EC21C5BA07200A13164 /* CMULaundryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CMULaundryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		59FF0EC61C5BA07200A13164 /* CMULaundryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMULaundryUITests.swift; sourceTree = "<group>"; };
 		59FF0EC81C5BA07200A13164 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		59FF0ED41C5BA28E00A13164 /* LaundryRooms.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaundryRooms.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				59FF0EAD1C5BA07200A13164 /* Assets.xcassets */,
 				59FF0EAF1C5BA07200A13164 /* LaunchScreen.storyboard */,
 				59FF0EB21C5BA07200A13164 /* Info.plist */,
+				59FF0ED41C5BA28E00A13164 /* LaundryRooms.swift */,
 			);
 			path = CMULaundry;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59FF0ED51C5BA28E00A13164 /* LaundryRooms.swift in Sources */,
 				59FF0EA91C5BA07200A13164 /* DetailViewController.swift in Sources */,
 				59FF0EA71C5BA07200A13164 /* MasterViewController.swift in Sources */,
 				59FF0EA51C5BA07200A13164 /* AppDelegate.swift in Sources */,
