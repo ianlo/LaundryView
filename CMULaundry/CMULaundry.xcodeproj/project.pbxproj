@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5915A96F1C5EF46200F0A9B0 /* Machine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5915A96E1C5EF46200F0A9B0 /* Machine.swift */; };
 		59FF0EA51C5BA07200A13164 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FF0EA41C5BA07200A13164 /* AppDelegate.swift */; };
 		59FF0EA71C5BA07200A13164 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FF0EA61C5BA07200A13164 /* MasterViewController.swift */; };
 		59FF0EA91C5BA07200A13164 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FF0EA81C5BA07200A13164 /* DetailViewController.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5915A96E1C5EF46200F0A9B0 /* Machine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Machine.swift; sourceTree = "<group>"; };
 		59FF0EA11C5BA07200A13164 /* CMULaundry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CMULaundry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59FF0EA41C5BA07200A13164 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59FF0EA61C5BA07200A13164 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				59FF0EAF1C5BA07200A13164 /* LaunchScreen.storyboard */,
 				59FF0EB21C5BA07200A13164 /* Info.plist */,
 				59FF0ED41C5BA28E00A13164 /* LaundryRooms.swift */,
+				5915A96E1C5EF46200F0A9B0 /* Machine.swift */,
 			);
 			path = CMULaundry;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 			files = (
 				59FF0ED51C5BA28E00A13164 /* LaundryRooms.swift in Sources */,
 				59FF0EA91C5BA07200A13164 /* DetailViewController.swift in Sources */,
+				5915A96F1C5EF46200F0A9B0 /* Machine.swift in Sources */,
 				59FF0EA71C5BA07200A13164 /* MasterViewController.swift in Sources */,
 				59FF0EA51C5BA07200A13164 /* AppDelegate.swift in Sources */,
 			);
@@ -492,6 +496,7 @@
 				59FF0ECD1C5BA07200A13164 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		59FF0ECE1C5BA07200A13164 /* Build configuration list for PBXNativeTarget "CMULaundryTests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +505,7 @@
 				59FF0ED01C5BA07200A13164 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		59FF0ED11C5BA07200A13164 /* Build configuration list for PBXNativeTarget "CMULaundryUITests" */ = {
 			isa = XCConfigurationList;
@@ -508,6 +514,7 @@
 				59FF0ED31C5BA07200A13164 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
