@@ -47,7 +47,7 @@ public class Machine {
             case RUNNING:
                 return "Running (" + timeRemaining + " min left)";
             case ENDED:
-                return "Cycle ended";
+                return "Cycle Ended";
             case OUTOFSERVICE:
                 return "Out of Service";
             case UNKNOWN:

@@ -24,10 +24,28 @@ class Machine {
     var type: Int
     var status: Int
     var number: Int
+    var timeRemaining = 0
     
     init(type: Int, status: Int, number: Int) {
         self.type = type
         self.status = status
         self.number = number
+    }
+    
+    func getStringStatus() -> String{
+        switch type {
+        case Machine.AVAILABLE:
+            return "Available"
+        case Machine.RUNNING:
+            return "Running (" + String(timeRemaining) + " min left)"
+        case Machine.ENDED:
+            return "Cycle Ended"
+        case Machine.OUTOFSERVICE:
+            return "Out of Service"
+        case Machine.UNKNOWN:
+            return "Status Unknown"
+        default:
+            return "Status Unknown"
+        }
     }
 }
