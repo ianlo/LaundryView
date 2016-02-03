@@ -22,7 +22,17 @@ class Machine {
     
     // Local fields.
     var type: Int
-    var status: Int
+    var status: Int {
+        get {
+            return self.status
+        }
+        set(newStatus) {
+            self.status = newStatus
+            if (self.status != Machine.RUNNING) {
+                timeRemaining = 0
+            }
+        }
+    }
     var number: Int
     var timeRemaining = 0
     
