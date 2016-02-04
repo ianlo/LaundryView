@@ -22,12 +22,8 @@ class Machine {
     
     // Local fields.
     var type: Int
-    var status: Int {
-        get {
-            return self.status
-        }
-        set(newStatus) {
-            self.status = newStatus
+    var status: Int = 0 {
+        didSet {
             if (self.status != Machine.RUNNING) {
                 timeRemaining = 0
             }
