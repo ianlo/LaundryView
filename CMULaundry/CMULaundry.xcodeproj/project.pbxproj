@@ -7,68 +7,68 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5915A96F1C5EF46200F0A9B0 /* Machine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5915A96E1C5EF46200F0A9B0 /* Machine.swift */; };
-		59FF0EA51C5BA07200A13164 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FF0EA41C5BA07200A13164 /* AppDelegate.swift */; };
-		59FF0EA71C5BA07200A13164 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FF0EA61C5BA07200A13164 /* MasterViewController.swift */; };
-		59FF0EAC1C5BA07200A13164 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59FF0EAA1C5BA07200A13164 /* Main.storyboard */; };
-		59FF0EAE1C5BA07200A13164 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59FF0EAD1C5BA07200A13164 /* Assets.xcassets */; };
-		59FF0EB11C5BA07200A13164 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59FF0EAF1C5BA07200A13164 /* LaunchScreen.storyboard */; };
-		59FF0EBC1C5BA07200A13164 /* CMULaundryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FF0EBB1C5BA07200A13164 /* CMULaundryTests.swift */; };
-		59FF0EC71C5BA07200A13164 /* CMULaundryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FF0EC61C5BA07200A13164 /* CMULaundryUITests.swift */; };
-		59FF0ED51C5BA28E00A13164 /* LaundryRooms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FF0ED41C5BA28E00A13164 /* LaundryRooms.swift */; };
+		59168F7F1C686865001711EE /* LaundryRooms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59168F7D1C686865001711EE /* LaundryRooms.swift */; };
+		59168F801C686865001711EE /* Machine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59168F7E1C686865001711EE /* Machine.swift */; };
+		59CFA66E1C68682C00A36B73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CFA66D1C68682C00A36B73 /* AppDelegate.swift */; };
+		59CFA6701C68682C00A36B73 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CFA66F1C68682C00A36B73 /* ViewController.swift */; };
+		59CFA6731C68682C00A36B73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59CFA6711C68682C00A36B73 /* Main.storyboard */; };
+		59CFA6751C68682C00A36B73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59CFA6741C68682C00A36B73 /* Assets.xcassets */; };
+		59CFA6781C68682C00A36B73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59CFA6761C68682C00A36B73 /* LaunchScreen.storyboard */; };
+		59CFA6831C68682C00A36B73 /* CMULaundryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CFA6821C68682C00A36B73 /* CMULaundryTests.swift */; };
+		59CFA68E1C68682C00A36B73 /* CMULaundryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CFA68D1C68682C00A36B73 /* CMULaundryUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		59FF0EB81C5BA07200A13164 /* PBXContainerItemProxy */ = {
+		59CFA67F1C68682C00A36B73 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 59FF0E991C5BA07200A13164 /* Project object */;
+			containerPortal = 59CFA6621C68682C00A36B73 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 59FF0EA01C5BA07200A13164;
+			remoteGlobalIDString = 59CFA6691C68682C00A36B73;
 			remoteInfo = CMULaundry;
 		};
-		59FF0EC31C5BA07200A13164 /* PBXContainerItemProxy */ = {
+		59CFA68A1C68682C00A36B73 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 59FF0E991C5BA07200A13164 /* Project object */;
+			containerPortal = 59CFA6621C68682C00A36B73 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 59FF0EA01C5BA07200A13164;
+			remoteGlobalIDString = 59CFA6691C68682C00A36B73;
 			remoteInfo = CMULaundry;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5915A96E1C5EF46200F0A9B0 /* Machine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Machine.swift; sourceTree = "<group>"; };
-		59FF0EA11C5BA07200A13164 /* CMULaundry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CMULaundry.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		59FF0EA41C5BA07200A13164 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		59FF0EA61C5BA07200A13164 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		59FF0EAB1C5BA07200A13164 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		59FF0EAD1C5BA07200A13164 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		59FF0EB01C5BA07200A13164 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		59FF0EB21C5BA07200A13164 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		59FF0EB71C5BA07200A13164 /* CMULaundryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CMULaundryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		59FF0EBB1C5BA07200A13164 /* CMULaundryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMULaundryTests.swift; sourceTree = "<group>"; };
-		59FF0EBD1C5BA07200A13164 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		59FF0EC21C5BA07200A13164 /* CMULaundryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CMULaundryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		59FF0EC61C5BA07200A13164 /* CMULaundryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMULaundryUITests.swift; sourceTree = "<group>"; };
-		59FF0EC81C5BA07200A13164 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		59FF0ED41C5BA28E00A13164 /* LaundryRooms.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaundryRooms.swift; sourceTree = "<group>"; };
+		59168F7D1C686865001711EE /* LaundryRooms.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaundryRooms.swift; sourceTree = "<group>"; };
+		59168F7E1C686865001711EE /* Machine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Machine.swift; sourceTree = "<group>"; };
+		59CFA66A1C68682C00A36B73 /* CMULaundry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CMULaundry.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		59CFA66D1C68682C00A36B73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		59CFA66F1C68682C00A36B73 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		59CFA6721C68682C00A36B73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		59CFA6741C68682C00A36B73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		59CFA6771C68682C00A36B73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		59CFA6791C68682C00A36B73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		59CFA67E1C68682C00A36B73 /* CMULaundryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CMULaundryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		59CFA6821C68682C00A36B73 /* CMULaundryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMULaundryTests.swift; sourceTree = "<group>"; };
+		59CFA6841C68682C00A36B73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		59CFA6891C68682C00A36B73 /* CMULaundryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CMULaundryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		59CFA68D1C68682C00A36B73 /* CMULaundryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMULaundryUITests.swift; sourceTree = "<group>"; };
+		59CFA68F1C68682C00A36B73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		59FF0E9E1C5BA07200A13164 /* Frameworks */ = {
+		59CFA6671C68682C00A36B73 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		59FF0EB41C5BA07200A13164 /* Frameworks */ = {
+		59CFA67B1C68682C00A36B73 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		59FF0EBF1C5BA07200A13164 /* Frameworks */ = {
+		59CFA6861C68682C00A36B73 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -78,55 +78,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		59FF0E981C5BA07200A13164 = {
+		59CFA6611C68682C00A36B73 = {
 			isa = PBXGroup;
 			children = (
-				59FF0EA31C5BA07200A13164 /* CMULaundry */,
-				59FF0EBA1C5BA07200A13164 /* CMULaundryTests */,
-				59FF0EC51C5BA07200A13164 /* CMULaundryUITests */,
-				59FF0EA21C5BA07200A13164 /* Products */,
+				59CFA66C1C68682C00A36B73 /* CMULaundry */,
+				59CFA6811C68682C00A36B73 /* CMULaundryTests */,
+				59CFA68C1C68682C00A36B73 /* CMULaundryUITests */,
+				59CFA66B1C68682C00A36B73 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		59FF0EA21C5BA07200A13164 /* Products */ = {
+		59CFA66B1C68682C00A36B73 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				59FF0EA11C5BA07200A13164 /* CMULaundry.app */,
-				59FF0EB71C5BA07200A13164 /* CMULaundryTests.xctest */,
-				59FF0EC21C5BA07200A13164 /* CMULaundryUITests.xctest */,
+				59CFA66A1C68682C00A36B73 /* CMULaundry.app */,
+				59CFA67E1C68682C00A36B73 /* CMULaundryTests.xctest */,
+				59CFA6891C68682C00A36B73 /* CMULaundryUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		59FF0EA31C5BA07200A13164 /* CMULaundry */ = {
+		59CFA66C1C68682C00A36B73 /* CMULaundry */ = {
 			isa = PBXGroup;
 			children = (
-				59FF0EA41C5BA07200A13164 /* AppDelegate.swift */,
-				59FF0EA61C5BA07200A13164 /* MasterViewController.swift */,
-				59FF0EAA1C5BA07200A13164 /* Main.storyboard */,
-				59FF0EAD1C5BA07200A13164 /* Assets.xcassets */,
-				59FF0EAF1C5BA07200A13164 /* LaunchScreen.storyboard */,
-				59FF0EB21C5BA07200A13164 /* Info.plist */,
-				59FF0ED41C5BA28E00A13164 /* LaundryRooms.swift */,
-				5915A96E1C5EF46200F0A9B0 /* Machine.swift */,
+				59168F7D1C686865001711EE /* LaundryRooms.swift */,
+				59168F7E1C686865001711EE /* Machine.swift */,
+				59CFA66D1C68682C00A36B73 /* AppDelegate.swift */,
+				59CFA66F1C68682C00A36B73 /* ViewController.swift */,
+				59CFA6711C68682C00A36B73 /* Main.storyboard */,
+				59CFA6741C68682C00A36B73 /* Assets.xcassets */,
+				59CFA6761C68682C00A36B73 /* LaunchScreen.storyboard */,
+				59CFA6791C68682C00A36B73 /* Info.plist */,
 			);
 			path = CMULaundry;
 			sourceTree = "<group>";
 		};
-		59FF0EBA1C5BA07200A13164 /* CMULaundryTests */ = {
+		59CFA6811C68682C00A36B73 /* CMULaundryTests */ = {
 			isa = PBXGroup;
 			children = (
-				59FF0EBB1C5BA07200A13164 /* CMULaundryTests.swift */,
-				59FF0EBD1C5BA07200A13164 /* Info.plist */,
+				59CFA6821C68682C00A36B73 /* CMULaundryTests.swift */,
+				59CFA6841C68682C00A36B73 /* Info.plist */,
 			);
 			path = CMULaundryTests;
 			sourceTree = "<group>";
 		};
-		59FF0EC51C5BA07200A13164 /* CMULaundryUITests */ = {
+		59CFA68C1C68682C00A36B73 /* CMULaundryUITests */ = {
 			isa = PBXGroup;
 			children = (
-				59FF0EC61C5BA07200A13164 /* CMULaundryUITests.swift */,
-				59FF0EC81C5BA07200A13164 /* Info.plist */,
+				59CFA68D1C68682C00A36B73 /* CMULaundryUITests.swift */,
+				59CFA68F1C68682C00A36B73 /* Info.plist */,
 			);
 			path = CMULaundryUITests;
 			sourceTree = "<group>";
@@ -134,13 +134,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		59FF0EA01C5BA07200A13164 /* CMULaundry */ = {
+		59CFA6691C68682C00A36B73 /* CMULaundry */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 59FF0ECB1C5BA07200A13164 /* Build configuration list for PBXNativeTarget "CMULaundry" */;
+			buildConfigurationList = 59CFA6921C68682C00A36B73 /* Build configuration list for PBXNativeTarget "CMULaundry" */;
 			buildPhases = (
-				59FF0E9D1C5BA07200A13164 /* Sources */,
-				59FF0E9E1C5BA07200A13164 /* Frameworks */,
-				59FF0E9F1C5BA07200A13164 /* Resources */,
+				59CFA6661C68682C00A36B73 /* Sources */,
+				59CFA6671C68682C00A36B73 /* Frameworks */,
+				59CFA6681C68682C00A36B73 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -148,69 +148,69 @@
 			);
 			name = CMULaundry;
 			productName = CMULaundry;
-			productReference = 59FF0EA11C5BA07200A13164 /* CMULaundry.app */;
+			productReference = 59CFA66A1C68682C00A36B73 /* CMULaundry.app */;
 			productType = "com.apple.product-type.application";
 		};
-		59FF0EB61C5BA07200A13164 /* CMULaundryTests */ = {
+		59CFA67D1C68682C00A36B73 /* CMULaundryTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 59FF0ECE1C5BA07200A13164 /* Build configuration list for PBXNativeTarget "CMULaundryTests" */;
+			buildConfigurationList = 59CFA6951C68682C00A36B73 /* Build configuration list for PBXNativeTarget "CMULaundryTests" */;
 			buildPhases = (
-				59FF0EB31C5BA07200A13164 /* Sources */,
-				59FF0EB41C5BA07200A13164 /* Frameworks */,
-				59FF0EB51C5BA07200A13164 /* Resources */,
+				59CFA67A1C68682C00A36B73 /* Sources */,
+				59CFA67B1C68682C00A36B73 /* Frameworks */,
+				59CFA67C1C68682C00A36B73 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				59FF0EB91C5BA07200A13164 /* PBXTargetDependency */,
+				59CFA6801C68682C00A36B73 /* PBXTargetDependency */,
 			);
 			name = CMULaundryTests;
 			productName = CMULaundryTests;
-			productReference = 59FF0EB71C5BA07200A13164 /* CMULaundryTests.xctest */;
+			productReference = 59CFA67E1C68682C00A36B73 /* CMULaundryTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		59FF0EC11C5BA07200A13164 /* CMULaundryUITests */ = {
+		59CFA6881C68682C00A36B73 /* CMULaundryUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 59FF0ED11C5BA07200A13164 /* Build configuration list for PBXNativeTarget "CMULaundryUITests" */;
+			buildConfigurationList = 59CFA6981C68682C00A36B73 /* Build configuration list for PBXNativeTarget "CMULaundryUITests" */;
 			buildPhases = (
-				59FF0EBE1C5BA07200A13164 /* Sources */,
-				59FF0EBF1C5BA07200A13164 /* Frameworks */,
-				59FF0EC01C5BA07200A13164 /* Resources */,
+				59CFA6851C68682C00A36B73 /* Sources */,
+				59CFA6861C68682C00A36B73 /* Frameworks */,
+				59CFA6871C68682C00A36B73 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				59FF0EC41C5BA07200A13164 /* PBXTargetDependency */,
+				59CFA68B1C68682C00A36B73 /* PBXTargetDependency */,
 			);
 			name = CMULaundryUITests;
 			productName = CMULaundryUITests;
-			productReference = 59FF0EC21C5BA07200A13164 /* CMULaundryUITests.xctest */;
+			productReference = 59CFA6891C68682C00A36B73 /* CMULaundryUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		59FF0E991C5BA07200A13164 /* Project object */ = {
+		59CFA6621C68682C00A36B73 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Ian Lo";
 				TargetAttributes = {
-					59FF0EA01C5BA07200A13164 = {
-						CreatedOnToolsVersion = 7.2;
+					59CFA6691C68682C00A36B73 = {
+						CreatedOnToolsVersion = 7.2.1;
 					};
-					59FF0EB61C5BA07200A13164 = {
-						CreatedOnToolsVersion = 7.2;
-						TestTargetID = 59FF0EA01C5BA07200A13164;
+					59CFA67D1C68682C00A36B73 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = 59CFA6691C68682C00A36B73;
 					};
-					59FF0EC11C5BA07200A13164 = {
-						CreatedOnToolsVersion = 7.2;
-						TestTargetID = 59FF0EA01C5BA07200A13164;
+					59CFA6881C68682C00A36B73 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = 59CFA6691C68682C00A36B73;
 					};
 				};
 			};
-			buildConfigurationList = 59FF0E9C1C5BA07200A13164 /* Build configuration list for PBXProject "CMULaundry" */;
+			buildConfigurationList = 59CFA6651C68682C00A36B73 /* Build configuration list for PBXProject "CMULaundry" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -218,37 +218,37 @@
 				en,
 				Base,
 			);
-			mainGroup = 59FF0E981C5BA07200A13164;
-			productRefGroup = 59FF0EA21C5BA07200A13164 /* Products */;
+			mainGroup = 59CFA6611C68682C00A36B73;
+			productRefGroup = 59CFA66B1C68682C00A36B73 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				59FF0EA01C5BA07200A13164 /* CMULaundry */,
-				59FF0EB61C5BA07200A13164 /* CMULaundryTests */,
-				59FF0EC11C5BA07200A13164 /* CMULaundryUITests */,
+				59CFA6691C68682C00A36B73 /* CMULaundry */,
+				59CFA67D1C68682C00A36B73 /* CMULaundryTests */,
+				59CFA6881C68682C00A36B73 /* CMULaundryUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		59FF0E9F1C5BA07200A13164 /* Resources */ = {
+		59CFA6681C68682C00A36B73 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59FF0EB11C5BA07200A13164 /* LaunchScreen.storyboard in Resources */,
-				59FF0EAE1C5BA07200A13164 /* Assets.xcassets in Resources */,
-				59FF0EAC1C5BA07200A13164 /* Main.storyboard in Resources */,
+				59CFA6781C68682C00A36B73 /* LaunchScreen.storyboard in Resources */,
+				59CFA6751C68682C00A36B73 /* Assets.xcassets in Resources */,
+				59CFA6731C68682C00A36B73 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		59FF0EB51C5BA07200A13164 /* Resources */ = {
+		59CFA67C1C68682C00A36B73 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		59FF0EC01C5BA07200A13164 /* Resources */ = {
+		59CFA6871C68682C00A36B73 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -258,61 +258,61 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		59FF0E9D1C5BA07200A13164 /* Sources */ = {
+		59CFA6661C68682C00A36B73 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59FF0ED51C5BA28E00A13164 /* LaundryRooms.swift in Sources */,
-				5915A96F1C5EF46200F0A9B0 /* Machine.swift in Sources */,
-				59FF0EA71C5BA07200A13164 /* MasterViewController.swift in Sources */,
-				59FF0EA51C5BA07200A13164 /* AppDelegate.swift in Sources */,
+				59CFA6701C68682C00A36B73 /* ViewController.swift in Sources */,
+				59168F801C686865001711EE /* Machine.swift in Sources */,
+				59168F7F1C686865001711EE /* LaundryRooms.swift in Sources */,
+				59CFA66E1C68682C00A36B73 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		59FF0EB31C5BA07200A13164 /* Sources */ = {
+		59CFA67A1C68682C00A36B73 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59FF0EBC1C5BA07200A13164 /* CMULaundryTests.swift in Sources */,
+				59CFA6831C68682C00A36B73 /* CMULaundryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		59FF0EBE1C5BA07200A13164 /* Sources */ = {
+		59CFA6851C68682C00A36B73 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59FF0EC71C5BA07200A13164 /* CMULaundryUITests.swift in Sources */,
+				59CFA68E1C68682C00A36B73 /* CMULaundryUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		59FF0EB91C5BA07200A13164 /* PBXTargetDependency */ = {
+		59CFA6801C68682C00A36B73 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 59FF0EA01C5BA07200A13164 /* CMULaundry */;
-			targetProxy = 59FF0EB81C5BA07200A13164 /* PBXContainerItemProxy */;
+			target = 59CFA6691C68682C00A36B73 /* CMULaundry */;
+			targetProxy = 59CFA67F1C68682C00A36B73 /* PBXContainerItemProxy */;
 		};
-		59FF0EC41C5BA07200A13164 /* PBXTargetDependency */ = {
+		59CFA68B1C68682C00A36B73 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 59FF0EA01C5BA07200A13164 /* CMULaundry */;
-			targetProxy = 59FF0EC31C5BA07200A13164 /* PBXContainerItemProxy */;
+			target = 59CFA6691C68682C00A36B73 /* CMULaundry */;
+			targetProxy = 59CFA68A1C68682C00A36B73 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		59FF0EAA1C5BA07200A13164 /* Main.storyboard */ = {
+		59CFA6711C68682C00A36B73 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				59FF0EAB1C5BA07200A13164 /* Base */,
+				59CFA6721C68682C00A36B73 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		59FF0EAF1C5BA07200A13164 /* LaunchScreen.storyboard */ = {
+		59CFA6761C68682C00A36B73 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				59FF0EB01C5BA07200A13164 /* Base */,
+				59CFA6771C68682C00A36B73 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -320,7 +320,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		59FF0EC91C5BA07200A13164 /* Debug */ = {
+		59CFA6901C68682C00A36B73 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -365,7 +365,7 @@
 			};
 			name = Debug;
 		};
-		59FF0ECA1C5BA07200A13164 /* Release */ = {
+		59CFA6911C68682C00A36B73 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -403,7 +403,7 @@
 			};
 			name = Release;
 		};
-		59FF0ECC1C5BA07200A13164 /* Debug */ = {
+		59CFA6931C68682C00A36B73 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -414,7 +414,7 @@
 			};
 			name = Debug;
 		};
-		59FF0ECD1C5BA07200A13164 /* Release */ = {
+		59CFA6941C68682C00A36B73 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -425,7 +425,7 @@
 			};
 			name = Release;
 		};
-		59FF0ECF1C5BA07200A13164 /* Debug */ = {
+		59CFA6961C68682C00A36B73 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -437,7 +437,7 @@
 			};
 			name = Debug;
 		};
-		59FF0ED01C5BA07200A13164 /* Release */ = {
+		59CFA6971C68682C00A36B73 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -449,7 +449,7 @@
 			};
 			name = Release;
 		};
-		59FF0ED21C5BA07200A13164 /* Debug */ = {
+		59CFA6991C68682C00A36B73 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = CMULaundryUITests/Info.plist;
@@ -461,7 +461,7 @@
 			};
 			name = Debug;
 		};
-		59FF0ED31C5BA07200A13164 /* Release */ = {
+		59CFA69A1C68682C00A36B73 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = CMULaundryUITests/Info.plist;
@@ -476,43 +476,43 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		59FF0E9C1C5BA07200A13164 /* Build configuration list for PBXProject "CMULaundry" */ = {
+		59CFA6651C68682C00A36B73 /* Build configuration list for PBXProject "CMULaundry" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				59FF0EC91C5BA07200A13164 /* Debug */,
-				59FF0ECA1C5BA07200A13164 /* Release */,
+				59CFA6901C68682C00A36B73 /* Debug */,
+				59CFA6911C68682C00A36B73 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		59FF0ECB1C5BA07200A13164 /* Build configuration list for PBXNativeTarget "CMULaundry" */ = {
+		59CFA6921C68682C00A36B73 /* Build configuration list for PBXNativeTarget "CMULaundry" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				59FF0ECC1C5BA07200A13164 /* Debug */,
-				59FF0ECD1C5BA07200A13164 /* Release */,
+				59CFA6931C68682C00A36B73 /* Debug */,
+				59CFA6941C68682C00A36B73 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		59FF0ECE1C5BA07200A13164 /* Build configuration list for PBXNativeTarget "CMULaundryTests" */ = {
+		59CFA6951C68682C00A36B73 /* Build configuration list for PBXNativeTarget "CMULaundryTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				59FF0ECF1C5BA07200A13164 /* Debug */,
-				59FF0ED01C5BA07200A13164 /* Release */,
+				59CFA6961C68682C00A36B73 /* Debug */,
+				59CFA6971C68682C00A36B73 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		59FF0ED11C5BA07200A13164 /* Build configuration list for PBXNativeTarget "CMULaundryUITests" */ = {
+		59CFA6981C68682C00A36B73 /* Build configuration list for PBXNativeTarget "CMULaundryUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				59FF0ED21C5BA07200A13164 /* Debug */,
-				59FF0ED31C5BA07200A13164 /* Release */,
+				59CFA6991C68682C00A36B73 /* Debug */,
+				59CFA69A1C68682C00A36B73 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 59FF0E991C5BA07200A13164 /* Project object */;
+	rootObject = 59CFA6621C68682C00A36B73 /* Project object */;
 }

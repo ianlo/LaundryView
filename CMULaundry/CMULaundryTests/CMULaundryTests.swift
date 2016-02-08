@@ -2,7 +2,7 @@
 //  CMULaundryTests.swift
 //  CMULaundryTests
 //
-//  Created by Ian Lo on 2016-01-29.
+//  Created by Ian Lo on 2016-02-08.
 //  Copyright © 2016 Ian Lo. All rights reserved.
 //
 
