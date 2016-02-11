@@ -27,8 +27,8 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter machine number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6wI-Vd-u0B">
-                                        <rect key="frame" x="0.0" y="33" width="167" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="560" placeholderIntrinsicHeight="30" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter machine number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6wI-Vd-u0B">
+                                        <rect key="frame" x="0.0" y="33" width="560" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -37,6 +37,10 @@
                                         <state key="normal" title="Get Info"/>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="6wI-Vd-u0B" firstAttribute="leading" secondItem="LKq-RU-8fL" secondAttribute="leading" id="79S-LG-3X5"/>
+                                    <constraint firstAttribute="trailing" secondItem="6wI-Vd-u0B" secondAttribute="trailing" id="S5c-4D-2yy"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
