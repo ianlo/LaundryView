@@ -35,6 +35,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rfl-gV-o3W">
                                         <rect key="frame" x="0.0" y="75" width="55" height="30"/>
                                         <state key="normal" title="Get Info"/>
+                                        <connections>
+                                            <action selector="setDefaultLabelText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tbV-bt-b8s"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -50,6 +53,10 @@
                             <constraint firstAttribute="trailingMargin" secondItem="LKq-RU-8fL" secondAttribute="trailing" id="kHW-Wv-LM3"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="machineNumberLabel" destination="ll2-Cu-aaT" id="Yn9-Dq-eFr"/>
+                        <outlet property="machineTextField" destination="6wI-Vd-u0B" id="gBr-oh-t7f"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
