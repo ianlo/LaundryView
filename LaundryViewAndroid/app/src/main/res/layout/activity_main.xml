@@ -21,16 +21,15 @@
         android:layout_height="match_parent"
         tools:context="layouts.MainActivity">
 
-
         <FrameLayout
             android:id="@+id/main_fragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
         </FrameLayout>
 
         <ListView
             android:id="@+id/left_drawer"
             style="@style/DrawerListViewStyle" />
     </android.support.v4.widget.DrawerLayout>
+    
 </LinearLayout>

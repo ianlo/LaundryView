@@ -22,7 +22,6 @@ public class MachineFragmentWrapper extends Fragment {
     private MachineFragment washerFragment;
     private MachineFragment dryerFragment;
     private ArrayList<MachineFragment> fragments;
-    private LaundryRoom laundryRoom;
 
     public static MachineFragmentWrapper newInstance(MainActivity activity, LaundryRoom laundryRoom) {
         MachineFragmentWrapper f = new MachineFragmentWrapper();
